@@ -1,0 +1,44 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__mscsteps {
+	margin: 300px 0 0;
+	padding: 0 0 100px;
+	@include maxw($mq-md) {
+		margin: 250px 0 0;
+		padding: 0 0 50px;
+	}
+	.item {
+		&-title {
+			display: grid;
+			place-items: center;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background: var(--primary);
+			color: var(--white);
+			font-family: $montserratRegular;
+			font-size: 36px;
+			margin: 0 auto;
+		}
+		h2,
+		h3,
+		p {
+			text-align: center;
+		}
+		h2,
+		h3 {
+			font-family: $montserratRegular;
+			font-weight: 400;
+			margin: 10px 0;
+			font-size: 25px;
+			@include maxw($mq-md) {
+				font-size: 22px;
+			}
+		}
+		p {
+			margin: 0;
+			font-size: 15px;
+		}
+	}
+}

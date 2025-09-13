@@ -1,0 +1,6 @@
+@use 'sass:math';
+
+@function size($target, $context: $base-size) {
+	@return math.div($target, $context) * 1rem;
+}
+//example size(14);

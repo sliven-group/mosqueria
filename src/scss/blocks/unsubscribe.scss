@@ -1,0 +1,12 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__uns {
+	padding: 50px 0;
+	.mos__container {
+		max-width: 768px;
+		p {
+			text-align: justify;
+		}
+	}
+}

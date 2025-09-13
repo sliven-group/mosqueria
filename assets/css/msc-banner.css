@@ -1,0 +1,105 @@
+.mos__block__mscbanner{
+  background-color:var(--black);
+  background-position:50%;
+  background-repeat:no-repeat;
+  background-size:cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:550px;
+  height:auto;
+  position:relative;
+}
+.mos__block__mscbanner .image{
+  height:100%;
+  left:0;
+  -o-object-fit:cover;
+     object-fit:cover;
+  -o-object-position:top;
+     object-position:top;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+@media (max-width: 743px){
+  .mos__block__mscbanner .image{
+    -o-object-position:26%;
+       object-position:26%;
+  }
+}
+.mos__block__mscbanner:after{
+  content:"";
+  display:block;
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  background:rgba(0, 0, 0, 0.25);
+}
+.mos__block__mscbanner__content{
+  position:absolute;
+  bottom:-200px;
+  left:0;
+  right:0;
+  z-index:1;
+  background:var(--white);
+  padding:50px;
+  width:100%;
+  max-width:1050px;
+  margin:0 auto;
+  box-shadow:0px 8px 24px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 1100px){
+  .mos__block__mscbanner__content{
+    padding:50px 30px;
+    max-width:100%;
+    width:calc(100% - 40px);
+  }
+}
+.mos__block__mscbanner__content h1,
+.mos__block__mscbanner__content h2,
+.mos__block__mscbanner__content h3{
+  font-family:"Montserrat-Regular", sans-serif;
+  font-weight:400;
+  margin:0 auto 35px;
+  color:var(--primary);
+  font-size:30px;
+}
+@media (max-width: 743px){
+  .mos__block__mscbanner__content h1,
+  .mos__block__mscbanner__content h2,
+  .mos__block__mscbanner__content h3{
+    font-size:22px;
+  }
+}
+.mos__block__mscbanner__content h1,
+.mos__block__mscbanner__content h2,
+.mos__block__mscbanner__content h3,
+.mos__block__mscbanner__content p,
+.mos__block__mscbanner__content a{
+  text-align:center;
+}
+.mos__block__mscbanner__content p{
+  margin:0 auto;
+  max-width:678px;
+  font-size:15px;
+}
+@media (max-width: 743px){
+  .mos__block__mscbanner__content p{
+    text-align:justify;
+  }
+}
+.mos__block__mscbanner__content p a{
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.mos__block__mscbanner__content p strong{
+  font-family:"Montserrat-SemiBold", sans-serif;
+  font-weight:600;
+}
+.mos__block__mscbanner__content .mos__btn{
+  margin:30px 0 0;
+}
+
+/*# sourceMappingURL=msc-banner.css.map*/

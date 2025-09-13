@@ -1,0 +1,68 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__lp {
+	padding: 0 0 100px;
+	@include maxw($mq-md) {
+		padding: 0 0 50px;
+	}
+	&__item {
+		text-decoration: none;
+		img {
+			width: 100%;
+			height: 291px;
+			object-fit: cover;
+			object-position: top;
+		}
+		h3 {
+			font-size: 18px;
+			font-family: $montserratMedium;
+			font-weight: 500;
+			margin: 10px 0 0;
+			@include maxw($mq-sm) {
+				font-size: 16px;
+			}
+		}
+	}
+	
+}
+
+@media screen and (max-width: 1024px){
+	.mos__block__lp {
+		/*.mos__wrap{
+			align-items: center;
+			display: flex;
+			overflow-x: scroll;
+			white-space: nowrap;
+			width: 100%;
+			.ds-grid{
+				display: flex;
+				white-space: nowrap;
+				padding: 0 20px;
+				grid-gap: 10px;
+			}
+		}*/
+		.mos__wrap{
+			display: flex;
+    		overflow-x: scroll;
+			padding: 0px 20px;
+			.ds-grid{
+				display: flex;
+				gap: 10px;
+			}
+		}
+		.mos__container{
+			max-width: 100%;
+			padding: 0px;
+		}
+		.js-cart-product{
+			width: 200px;
+		}
+		.product-card__img img{
+			height: 290px;
+		}
+		.product-card__info h2 a{
+			white-space: initial
+		}
+	}
+}

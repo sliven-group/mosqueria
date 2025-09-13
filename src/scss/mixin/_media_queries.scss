@@ -1,0 +1,62 @@
+// Mixin media all
+
+//420
+$mq-xs: 480px;
+//768
+$mq-sm: 743px;
+//991
+$mq-md: 1100px;
+//1400
+$mq-lg: 1400px;
+
+// Down
+// -----------------------------------------
+@mixin maxw($breakpoint) {
+	@if $breakpoint ==xs {
+		@media (max-width: "#{$mq-xs - 1}") {
+			@content;
+		}
+	} @else if $breakpoint ==sm {
+		@media (max-width: "#{$mq-sm - 1}") {
+			@content;
+		}
+	} @else if $breakpoint ==md {
+		@media (max-width: "#{$mq-md - 1}") {
+			@content;
+		}
+	} @else if $breakpoint ==lg {
+		@media (max-width: "#{$mq-lg - 1}") {
+			@content;
+		}
+	} @else {
+		@media (max-width: "#{$breakpoint}") {
+			@content;
+		}
+	}
+}
+
+// Up
+// -----------------------------------------
+@mixin minw($breakpoint) {
+	@if $breakpoint ==xs {
+		@media (min-width: "#{$mq-xs}") {
+			@content;
+		}
+	} @else if $breakpoint ==sm {
+		@media (min-width: "#{$mq-sm}") {
+			@content;
+		}
+	} @else if $breakpoint ==md {
+		@media (min-width: "#{$mq-md}") {
+			@content;
+		}
+	} @else if $breakpoint ==lg {
+		@media (min-width: "#{$mq-lg}") {
+			@content;
+		}
+	} @else {
+		@media (min-width: "#{$breakpoint}") {
+			@content;
+		}
+	}
+}

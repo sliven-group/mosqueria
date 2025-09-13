@@ -1,0 +1,113 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__quiz {
+	padding: 50px 0;
+	.mos__container {
+		max-width: 680px;
+		& > p,
+		& > h2 {
+			text-align: center;
+		}
+		& > h2 {
+			@include minw($mq-sm) {
+				font-size: 32px;
+			}
+		}
+		& > p {
+			margin: 0;
+		}
+	}
+	.form-input > label {
+		font-size: 20px;
+		margin: 0 0 20px;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		gap: 30px;
+		li {
+			list-style: none;
+			flex-basis: 0;
+			flex-grow: 1;
+			max-width: 300px;
+			min-width: 300px;
+			input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+				&:checked + span {
+					background: var(--primary);
+					color: var(--white);
+				}
+			}
+			span {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: var(--primary);
+				font-size: 16px;
+				font-weight: 500;
+				text-align: center;
+				padding: 8px 10px;
+				border: 1px solid var(--primary);
+				background: var(--white);
+				height: 100%;
+			}
+		}
+	}
+	#recommendation_quiz_radio_group,
+	#experience_quiz_radio_group {
+		label {
+			position: relative;
+			margin: 5px 10px 0 0;
+			input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+				&:checked + span {
+					color: var(--white);
+					background: var(--secondary);
+				}
+			}
+			span {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: var(--black);
+				font-size: 13px;
+				font-family: $poppinsRegular;
+				text-align: center;
+				padding: 8px 10px;
+				border: 1px solid var(--black);
+				background: transparent;
+				height: 40px;
+				width: 40px;
+				border-radius: 50%;
+			}
+			.just-validate-error-field + span {
+				color: rgb(184, 17, 17);
+				border: 1px solid rgb(184, 17, 17);
+			}
+		}
+		.just-validate-error-label {
+			display: none !important;
+		}
+	}
+	textarea {
+		height: 39px;
+		min-height: 39px;
+	}
+	#mos-form-quiz-message {
+		margin: 20px auto 0;
+		text-align: center;
+	}
+}

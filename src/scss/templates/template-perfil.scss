@@ -1,0 +1,27 @@
+.mos__account {
+	&__nav {
+		margin: 0;
+	}
+}
+
+.mos__pd {
+	padding: 0 0 50px;
+	&__nav {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			margin: 0 30px 0 0;
+			border-bottom: 1px solid transparent;
+			cursor: pointer;
+			&.active,
+			&:hover {
+				border-bottom: 1px solid var(--black);
+			}
+		}
+	}
+	#mos-form-billing-message,
+	#mos-form-account-message {
+		margin: 20px 0 0;
+	}
+}

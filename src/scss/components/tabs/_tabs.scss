@@ -1,0 +1,12 @@
+.mos__tab {
+	&__li {
+		&.active {
+		}
+	}
+	&__content {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+}

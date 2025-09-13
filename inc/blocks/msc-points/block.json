@@ -1,0 +1,18 @@
+{
+	"name": "acf/msc-points",
+	"title": "msc points",
+	"description": "Block msc points.",
+	"style": "block-msc-points",
+	"script": "block-msc-points",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["msc-points"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "msc-points.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

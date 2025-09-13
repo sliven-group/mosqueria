@@ -1,0 +1,18 @@
+{
+	"name": "acf/subscribe",
+	"title": "Subscribe",
+	"description": "Block subscribe.",
+	"style": "block-subscribe",
+	"script": "block-subscribe",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["subscribe"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "subscribe.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

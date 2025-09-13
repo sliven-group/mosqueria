@@ -1,0 +1,18 @@
+{
+	"name": "acf/latest-products",
+	"title": "Latest products",
+	"description": "Block latest products.",
+	"style": "block-latest-products",
+	"script": "block-latest-products",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["latest-products"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "latest-products.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

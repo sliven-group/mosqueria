@@ -1,0 +1,18 @@
+{
+	"name": "acf/msc-banner",
+	"title": "msc banner",
+	"description": "Block msc banner.",
+	"style": "block-msc-banner",
+	"script": "block-msc-banner",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["msc-banner"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "msc-banner.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

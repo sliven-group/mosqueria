@@ -1,0 +1,160 @@
+:root {
+	--black: #000;
+	--white: #fff;
+	--white-alpha-80: rgba(255, 255, 255, 0.8);
+	--red: #ff0000;
+	--green: #008000;
+	--primary: #011e41;
+	--secondary: #003366;
+}
+
+button {
+	background: transparent;
+}
+
+img {
+	display: block;
+}
+
+.ds-block {
+	display: block;
+}
+
+.m-auto {
+	margin: 0 auto;
+}
+
+.ds-grid {
+	display: grid;
+	grid-auto-flow: row dense;
+}
+
+.ds-grid__col2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.ds-grid__col3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.ds-grid__col4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.ds-grid__gap30 {
+	grid-gap: 30px;
+}
+
+.ds-grid__gap40 {
+	grid-gap: 40px;
+}
+
+.ds-grid__gap50 {
+	grid-gap: 50px;
+}
+
+.ds-flex {
+	display: flex;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.mos__btn {
+	width: fit-content;
+	text-decoration: none;
+	font-size: 18px;
+	border: 2px solid transparent;
+	transition: all 0.3s;
+}
+
+.mos__btnsvg,
+.mos__btn img {
+	margin-right: 5px;
+	transition: all 0.3s;
+}
+
+.mos__btn--light {
+	color: var(--white);
+	border-bottom: 1px solid var(--white);
+}
+
+.mos__btn--primary {
+	color: var(--white);
+	background: var(--primary);
+	padding: 15px 20px;
+	min-width: 180px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/*custom*/
+
+.mos__block__promo {
+	padding: 0;
+}
+
+.mos__block__hcategories > .wp-block-columns .wp-block-column > .wp-block-columns {
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 50px 20px;
+}
+
+.mos__block__mscbanner__content {
+	width: auto;
+	max-width: 100%;
+	bottom: 0;
+}
+
+.mos__block__mscsteps {
+	margin: 50px 0 0;
+}
+
+.relative {
+	position: relative;
+}
+
+.product-card__attrs {
+	background: hsla(0, 0%, 98%, 0.9);
+	bottom: 0;
+	left: 0;
+	min-height: 124px;
+	opacity: 0;
+	padding: 20px 10px;
+	position: absolute;
+	transition: all 0.3s;
+	visibility: hidden;
+	width: 100%;
+}
+
+.product-card__info .cat {
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.product-card__info h2 {
+	font-size: 18px;
+	margin: 5px 0 15px;
+}
+
+.product-card__info h2 a {
+	text-decoration: none;
+	color: var(--black);
+}
+
+@media (max-width: 1100px) {
+	.mos__block__mscsteps {
+		margin: 50px 0 0;
+	}
+}
+
+.mos__block__mscinteresting .item h3 {
+	position: relative;
+	min-width: auto;
+}

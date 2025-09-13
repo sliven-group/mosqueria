@@ -1,0 +1,52 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__ia {
+	padding: 50px 0;
+	.content {
+		width: 100%;
+		max-width: 991px;
+		margin: 0 auto 50px;
+	}
+	.items {
+		width: 100%;
+		max-width: 700px;
+		margin: 0 auto;
+		.item {
+			&__header {
+				margin: 0 0 40px;
+				cursor: pointer;
+				span {
+					font-size: 16px;
+					font-family: $montserratSemiBold;
+					width: calc(100% - 30px);
+					@include maxw($mq-sm) {
+						font-size: 16px;
+					}
+				}
+				svg,
+				img {
+					position: relative;
+					top: 4px;
+				}
+			}
+			&__content {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease-in;
+				table {
+					margin: 0 0 20px;
+				}
+				p {
+					text-align: justify;
+				}
+			}
+		}
+		.item.active {
+			.item__content {
+				overflow: visible;
+				max-height: 30000px;
+			}
+		}
+	}
+}

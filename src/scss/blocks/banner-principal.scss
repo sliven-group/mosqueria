@@ -1,0 +1,67 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__banner {
+	background-color: var(--black);
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	min-height: 550px;
+	height: 68vh;
+	position: relative;
+	.image,
+	video {
+		height: 100%;
+		left: 0;
+		object-fit: cover;
+		object-position: center;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.25);
+	}
+	&__content {
+		position: relative;
+		margin-bottom: 50px;
+		z-index: 1;
+		h1,
+		h2,
+		h3 {
+			font-family: $montserratSemiBold;
+			font-weight: 600;
+			margin: 10px 0 20px;
+		}
+		h1,
+		h2,
+		h3,
+		p,
+		a {
+			color: var(--white);
+			text-align: center;
+		}
+		p {
+			margin: 0;
+			a {
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+		}
+		.ds-flex {
+			.mos__btn:nth-child(2) {
+				margin: 0 0 0 25px;
+			}
+		}
+	}
+}

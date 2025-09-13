@@ -1,0 +1,93 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__mscbanner {
+	background-color: var(--black);
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	min-height: 550px;
+	height: auto;
+	position: relative;
+	.image {
+		height: 100%;
+		left: 0;
+		object-fit: cover;
+		object-position: top;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		@include maxw($mq-sm) {
+			object-position: 26%;
+		}
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.25);
+	}
+	&__content {
+		position: absolute;
+		bottom: -200px;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		background: var(--white);
+		padding: 50px;
+		width: 100%;
+		max-width: 1050px;
+		margin: 0 auto;
+		box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+		@include maxw($mq-md) {
+			padding: 50px 30px;
+			max-width: 100%;
+			width: calc(100% - 40px);
+		}
+		h1,
+		h2,
+		h3 {
+			font-family: $montserratRegular;
+			font-weight: 400;
+			margin: 0 auto 35px;
+			color: var(--primary);
+			font-size: 30px;
+			@include maxw($mq-sm) {
+				font-size: 22px;
+			}
+		}
+		h1,
+		h2,
+		h3,
+		p,
+		a {
+			text-align: center;
+		}
+		p {
+			margin: 0 auto;
+			max-width: 678px;
+			font-size: 15px;
+			@include maxw($mq-sm) {
+				text-align: justify;
+			}
+			a {
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+			strong {
+				font-family: $montserratSemiBold;
+				font-weight: 600;
+			}
+		}
+		.mos__btn {
+			margin: 30px 0 0;
+		}
+	}
+}

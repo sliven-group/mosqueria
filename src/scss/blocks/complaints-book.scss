@@ -1,0 +1,98 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__cb {
+	padding: 50px 0;
+	.mos__container {
+		max-width: 680px;
+		& > p,
+		& > h2 {
+			text-align: center;
+		}
+		& > h2 {
+			@include minw($mq-sm) {
+				font-size: 32px;
+			}
+		}
+		& > p {
+			margin: 0;
+		}
+	}
+	p {
+		font-size: 14px;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		gap: 30px;
+		li {
+			list-style: none;
+			flex-basis: 0;
+			flex-grow: 1;
+			max-width: 300px;
+			min-width: 300px;
+			input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+				&:checked + span {
+					background: var(--primary);
+					color: var(--white);
+				}
+			}
+			span {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: var(--primary);
+				font-size: 16px;
+				font-weight: 500;
+				text-align: center;
+				padding: 8px 10px;
+				border: 1px solid var(--primary);
+				background: var(--white);
+				height: 100%;
+			}
+		}
+	}
+	textarea {
+		height: 39px;
+		min-height: 39px;
+	}
+	select {
+		padding: 10px 3px;
+	}
+	#tipo-doc-cb{
+		option{
+			&:nth-child(2){
+				display: none;
+			}
+			@media screen and (max-width: 767px) {
+				&:nth-child(1){
+					display: none;
+				}
+				&:nth-child(2){
+					display: block;
+				}
+			}
+		}
+	}
+	#mos-form-cb-message {
+		margin: 20px auto 0;
+		text-align: center;
+	}
+	.ds-flex-2 {
+		.form-input {
+			&:nth-child(1) {
+				width: 40%;
+			}
+			&:nth-child(2) {
+				width: 55%;
+			}
+		}
+	}
+}

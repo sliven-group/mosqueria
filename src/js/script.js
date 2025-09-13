@@ -1,0 +1,12 @@
+import './components/marquee';
+import './components/header';
+import './components/search-product';
+import './components/add-to-cart';
+//import './components/wishlist';
+import './components/modal';
+import './components/login';
+import './components/register';
+import './components/password';
+import './components/newsletter';
+import './components/tabs';
+import './components/modal-promo';

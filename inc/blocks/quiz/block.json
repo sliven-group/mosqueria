@@ -1,0 +1,18 @@
+{
+	"name": "acf/quiz",
+	"title": "Quiz",
+	"description": "Block quiz.",
+	"style": "block-quiz",
+	"script": "block-quiz",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["quiz"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "quiz.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"name": "acf/info-accordion",
+	"title": "Info accordion",
+	"description": "Block info accordion.",
+	"style": "block-info-accordion",
+	"script": "block-info-accordion",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["info-accordion"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "info-accordion.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

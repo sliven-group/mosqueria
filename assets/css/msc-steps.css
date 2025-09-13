@@ -1,0 +1,46 @@
+.mos__block__mscsteps{
+  margin:300px 0 0;
+  padding:0 0 100px;
+}
+@media (max-width: 1100px){
+  .mos__block__mscsteps{
+    margin:250px 0 0;
+    padding:0 0 50px;
+  }
+}
+.mos__block__mscsteps .item-title{
+  display:grid;
+  place-items:center;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:var(--primary);
+  color:var(--white);
+  font-family:"Montserrat-Regular", sans-serif;
+  font-size:36px;
+  margin:0 auto;
+}
+.mos__block__mscsteps .item h2,
+.mos__block__mscsteps .item h3,
+.mos__block__mscsteps .item p{
+  text-align:center;
+}
+.mos__block__mscsteps .item h2,
+.mos__block__mscsteps .item h3{
+  font-family:"Montserrat-Regular", sans-serif;
+  font-weight:400;
+  margin:10px 0;
+  font-size:25px;
+}
+@media (max-width: 1100px){
+  .mos__block__mscsteps .item h2,
+  .mos__block__mscsteps .item h3{
+    font-size:22px;
+  }
+}
+.mos__block__mscsteps .item p{
+  margin:0;
+  font-size:15px;
+}
+
+/*# sourceMappingURL=msc-steps.css.map*/

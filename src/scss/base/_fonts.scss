@@ -1,0 +1,11 @@
+/**
+ * Define fonts
+*/
+@include font-face('Montserrat-Bold', $font-path + 'Montserrat/Montserrat-Bold', 700, woff woff2 ttf);
+@include font-face('Montserrat-SemiBold', $font-path + 'Montserrat/Montserrat-SemiBold', 600, woff woff2 ttf);
+@include font-face('Montserrat-Medium', $font-path + 'Montserrat/Montserrat-Medium', 500, woff woff2 ttf);
+@include font-face('Montserrat-Regular', $font-path + 'Montserrat/Montserrat-Regular', 400, woff woff2 ttf);
+
+@include font-face('Poppins-Bold', $font-path + 'Poppins/Poppins-Bold', 700, woff woff2 ttf);
+@include font-face('Poppins-Medium', $font-path + 'Poppins/Poppins-Medium', 500, woff woff2 ttf);
+@include font-face('Poppins-Regular', $font-path + 'Poppins/Poppins-Regular', 400, woff woff2 ttf);

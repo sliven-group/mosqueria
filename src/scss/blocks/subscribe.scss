@@ -1,0 +1,34 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__sub {
+	background: var(--primary);
+	padding: 100px 0;
+	&__content {
+		width: 100%;
+		max-width: 742px;
+		margin: 0 auto;
+		h2,
+		h3,
+		p {
+			color: var(--white);
+			text-align: center;
+		}
+		h2,
+		h3 {
+			font-size: 15px;
+			text-transform: uppercase;
+		}
+		p {
+			font-size: 23px;
+			@include maxw($mq-sm) {
+				font-size: 20px;
+			}
+		}
+		.mos__btn {
+			margin: 40px auto 0;
+			display: block;
+			font-size: 12px;
+		}
+	}
+}

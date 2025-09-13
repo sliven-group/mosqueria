@@ -1,0 +1,162 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__mscbenefits {
+	padding: 0 0 100px;
+	@include maxw($mq-sm) {
+		padding: 0 0 50px;
+	}
+	.benefits-container-generate-wrap{
+		position: relative;
+		.benefit-heading{
+			vertical-align: top;
+			padding: 15px 25px 11px 0;
+			font-size: 12px;
+			text-align: left;
+			border-bottom: 0;
+			background: transparent;		
+			.title{
+				br{
+					display: none;
+				}
+				strong{
+					font-family: "Montserrat-SemiBold", sans-serif;
+					font-weight: 600;
+					font-size: 18px;
+					display: block;
+					padding-bottom: 10px;
+				}
+				span{
+					font-family: "Poppins-Regular", sans-serif;
+					font-weight: 400;
+					font-size: 11px;
+				}
+			}			
+		}
+		.benefit-item{
+			font-weight: normal;
+			padding: 11px 25px 11px 0;
+			font-size: 13px;
+			color: #000;
+			letter-spacing: 0.02em;
+			text-align: left;
+			line-height: 1.5;
+			border-bottom: 0;
+			background: transparent;
+			font-family: "Montserrat-Regular", sans-serif;
+			display: flex;
+			align-items: center;
+		}
+		.benefits-container-generate{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: white;
+			border-right: 1px solid #d1d1d1;
+			display: none;
+			@include maxw($mq-sm) {
+				display: block;
+			}
+		}
+	
+	}
+
+	h2 {
+		font-family: $montserratRegular;
+		font-weight: 400;
+		font-size: 30px;
+		color: var(--primary);
+		@include maxw($mq-sm) {
+			font-size: 26px;
+		}
+	}
+	.items {
+		margin: 50px 0 0;
+	}
+	.item {
+		@include maxw($mq-sm) {
+			overflow: scroll;
+			overflow-y: hidden;
+		}
+		table {
+			border-spacing: 0;
+			border-collapse: collapse;
+		}
+		.tableHeader {
+			width: 23%;
+			vertical-align: top;
+			padding: 15px 25px 11px 0;
+			font-size: 12px;
+			text-align: left;
+			border-bottom: 0;
+			background: transparent;
+			&:not(:first-child) {
+				padding-left: 12px;
+				padding-right: 13px;
+				text-align: center;
+				border: none;
+				border-left: 1px solid #d1d1d1;
+				width: 18%;
+			}
+			.title,
+			.tiers {
+				span {
+					font-family: $poppinsRegular;
+					font-weight: 400;
+					font-size: 13px;
+				}
+			}
+			.tiers {
+				font-size: 18px;
+				font-family: $montserratSemiBold;
+				font-weight: 600;
+			}
+			.title {
+				font-size: 18px;
+				span {
+					font-size: 11px;
+				}
+			}
+		}
+		.tableData {
+			font-weight: normal;
+			padding: 11px 25px 11px 0;
+			font-size: 13px;
+			color: #000;
+			letter-spacing: 0.02em;
+			text-align: left;
+			line-height: 1.5;
+			border-bottom: 0;
+			background: transparent;
+			&:not(:first-child) {
+				text-align: center;
+				border: none;
+				border-left: 1px solid #d1d1d1;
+				vertical-align: middle;
+				padding: 0;
+				width: 18%;
+			}
+		}
+		.title,
+		.tableData {
+			font-family: $montserratRegular;
+			strong {
+				font-family: $montserratSemiBold;
+				font-weight: 600;
+			}
+		}
+		tbody {
+			tr:hover {
+				background-color: #f6f6f6;
+			}
+		}
+		.pointsEnabled {
+			width: 6px;
+			height: 6px;
+			background: var(--black);
+			border-radius: 50px;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}

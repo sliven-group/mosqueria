@@ -1,0 +1,35 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__promo {
+	padding: 0 0 100px;
+	@include maxw($mq-md) {
+		padding: 0 0 50px;
+	}
+	.image {
+		@include maxw($mq-sm) {
+			height: 380px;
+			object-fit: cover;
+		}
+	}
+	&__content {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		max-width: 768px;
+		margin: 0 auto;
+		padding: 0 40px 50px;
+		h2,
+		h3 {
+			text-align: center;
+			color: var(--white);
+			margin: 0 0 20px;
+		}
+		.mos__btn {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}

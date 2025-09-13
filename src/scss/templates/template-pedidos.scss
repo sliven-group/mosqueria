@@ -1,0 +1,175 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__orders {
+	padding: 0 0 50px 0;
+	.woo__products {
+		.item-big {
+			border-bottom: 0;
+			border-bottom: 1px solid #d9d9d9;
+			padding: 0 0 20px;
+			margin: 0 0 20px;
+			@include maxw($mq-sm) {
+				flex-wrap: wrap;
+			}
+			&__element {
+				&:not(:last-child) {
+					margin: 0 0 20px;
+				}
+				@include maxw($mq-sm) {
+					flex-wrap: wrap;
+				}
+			}
+			.mos__btn {
+				@include maxw($mq-sm) {
+					margin: 30px 0 0;
+				}
+			}
+			.info {
+				width: calc(100% - 180px);
+				@include maxw($mq-sm) {
+					width: 100%;
+					margin: 20px 0 0;
+				}
+				h4 {
+					font-size: 18px;
+					margin: 0 0 15px;
+					font-family: $montserratSemiBold;
+					font-weight: 600;
+					@include maxw($mq-sm) {
+						font-size: 16px;
+					}
+				}
+				p {
+					margin: 5px 0 0;
+				}
+			}
+		}
+		&__item {
+			&:not(:last-child) {
+				margin: 0 0 30px;
+			}
+			h2 {
+				margin: 0 0 10px;
+			}
+			.item {
+				border: 1px solid #d9d9d9;
+				padding: 20px;
+				h3 {
+					font-size: 23px;
+					margin: 0 0 15px;
+					@include maxw($mq-sm) {
+						font-size: 20px;
+					}
+				}
+				p {
+					margin: 0 0 5px;
+				}
+				ul {
+					padding: 0;
+					margin: 0;
+					li {
+						list-style: none;
+						padding: 10px 0;
+						&:first-child {
+							padding-top: 0;
+						}
+						&:not(:last-child) {
+							border-bottom: 1px solid #d9d9d9;
+						}
+						span {
+							&:nth-child(1) {
+								width: calc(100% - 110px);
+							}
+						}
+					}
+				}
+			}
+		}
+		&__status {
+			background: rgba(8, 139, 8, 0.74);
+			color: var(--white);
+			padding: 5px 10px;
+			margin: 0 0 20px;
+		}
+		&__state {
+			border: 1px solid #d9d9d9;
+			border-top: 0;
+			padding: 20px;
+			h3 {
+				font-size: 23px;
+				margin: 0 0 30px;
+			}
+			&__inner {
+				width: 100%;
+			}
+			&__line {
+				width: 20%;
+				font-size: 14px;
+				transition: all 0.4s;
+				text-align: center;
+				position: relative;
+				@include maxw($mq-xs) {
+					font-size: 10px;
+				}
+				span {
+					padding-top: 20px;
+					display: block;
+					position: relative;
+					color: #d9d9d9;
+					max-width: 100px;
+					margin: 0 auto;
+					text-align: center;
+				}
+				&:before {
+					content: '';
+					width: 10px;
+					height: 10px;
+					background: #d9d9d9;
+					font-size: 12px;
+					border-radius: 100%;
+					transition: all 0.4s;
+					display: block;
+					margin: 0 auto;
+					position: relative;
+					z-index: 1;
+				}
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 4px;
+					right: 50%;
+					width: 100%;
+					height: 2px;
+					background: #d9d9d9;
+				}
+				&:first-child {
+					&:after {
+						width: 50%;
+						right: 0;
+					}
+				}
+				&:last-child {
+					&:after {
+						width: 100%;
+						right: 50%;
+						left: auto;
+					}
+				}
+				&.active {
+					&:after,
+					&:before {
+						background: rgba(8, 139, 8, 0.74);
+					}
+					span {
+						color: rgba(8, 139, 8, 0.74);
+					}
+				}
+			}
+		}
+	}
+	.title-notlist {
+		font-size: 20px;
+	}
+}

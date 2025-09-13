@@ -1,0 +1,91 @@
+.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+}
+#login h1 a {
+	background-image: url('../img/logo.svg');
+	background-size: contain;
+	height: 85px;
+	width: 100%;
+	margin: 0;
+}
+.login form {
+	box-shadow: none;
+	padding: 20px 0;
+	border: 0;
+	background: transparent;
+}
+#login {
+	background: #fff;
+	margin: 0 auto;
+	padding: 40px 20px;
+	width: 400px;
+}
+.login label {
+	color: #000;
+	font-size: 14px;
+}
+
+.login form .forgetmenot {
+	float: none;
+}
+#login form p.submit {
+	margin-top: 15px;
+}
+#login form input[type='text'],
+#login form input[type='password'] {
+	border-radius: 0;
+}
+.login.wp-core-ui .button-primary {
+	background: #011e41;
+	border-color: #011e41;
+	box-shadow: 0 1px 0 #011e41;
+	color: #fff;
+	text-shadow: none;
+	float: none;
+	clear: both;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	height: auto;
+	font-size: 15px;
+	border-radius: 0;
+}
+p#nav,
+p#backtoblog {
+	display: none;
+}
+
+.login h1.admin-email__heading,
+.login form p.admin-email__details {
+	color: #fff;
+}
+
+.admin-email__actions .admin-email__actions-primary a.button-large {
+	background: #011e41;
+	border-color: #011e41;
+	box-shadow: 0 1px 0 #011e41;
+	color: #fff;
+	text-shadow: none;
+	float: none;
+	clear: both;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	height: auto;
+	font-size: 15px;
+	border-radius: 0;
+	text-align: center;
+	margin: 0 0 10px;
+}
+
+.admin-email__actions .admin-email__actions-primary input.button-large {
+	margin: 0;
+}
+
+.login h1.admin-email__heading,
+.login form p.admin-email__details {
+	color: #000 !important;
+}

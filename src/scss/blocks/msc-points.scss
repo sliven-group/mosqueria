@@ -1,0 +1,104 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__mscpoints {
+	padding: 0 0 100px;
+	@include maxw($mq-sm) {
+		padding: 0 0 50px;
+	}
+	.pointCals {
+		border: 2px solid var(--primary);
+		text-align: center;
+		background: var(--white);
+		width: 70%;
+		margin: 0 auto;
+		padding: 50px 20px;
+		@include maxw($mq-sm) {
+			width: 100%;
+		}
+		div {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	h2 {
+		font-family: $montserratRegular;
+		font-weight: 400;
+		margin: 0 0 50px;
+		font-size: 30px;
+		color: var(--primary);
+		@include maxw($mq-sm) {
+			font-size: 26px;
+		}
+	}
+	p {
+		font-size: 15px;
+	}
+	.circlenumber {
+		background-color: var(--primary);
+		border-radius: 50%;
+		height: 80px;
+		width: 80px;
+		position: relative;
+		.getPoints {
+			color: var(--white);
+			font-size: 20px;
+			font-family: $montserratBold;
+			left: 0;
+			line-height: 20px;
+			padding: 0 5px;
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			word-wrap: break-word;
+			transform: translateY(-50%);
+			span {
+				&:last-child {
+					font-size: 10px;
+					text-transform: uppercase;
+					display: block;
+					line-height: 12px;
+				}
+			}
+		}
+	}
+	.equalSign {
+		margin: 0 5%;
+	}
+	.desc {
+		display: block !important;
+		margin: 25px 0 0;
+		p {
+			margin: 0;
+		}
+	}
+	.items {
+		margin-top: 50px;
+		gap: 50px;
+		.item {
+			img {
+				max-height: 90px;
+				margin: 0 auto;
+				@include maxw($mq-sm) {
+					max-height: 70px;
+				}
+			}
+		}
+		h3,
+		h4,
+		p {
+			text-align: center;
+		}
+		h3,
+		h4 {
+			font-size: 20px;
+			margin: 20px 0 15px;
+			@include maxw($mq-sm){
+				font-size: 19px;
+			}
+		}
+		p {
+			margin: 0;
+		}
+	}
+}

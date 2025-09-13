@@ -1,0 +1,187 @@
+[
+	{
+		"distrito": "BREÑA",
+		"tarifa": "7.08",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "CHORRILLOS",
+		"tarifa": "16.76",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SANTA ANITA",
+		"tarifa": "11.56",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "BARRANCO",
+		"tarifa": "8.97",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "JESUS MARIA",
+		"tarifa": "7",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "MIRAFLORES",
+		"tarifa": "8.85",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "MAGDALENA DEL MAR",
+		"tarifa": "6",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SURQUILLO",
+		"tarifa": "8.5",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN BORJA",
+		"tarifa": "8.15",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN ISIDRO",
+		"tarifa": "6",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "CARMEN DE LA LEGUA",
+		"tarifa": "9.68",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "PUEBLO LIBRE",
+		"tarifa": "7",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SANTIAGO DE SURCO",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LA PUNTA",
+		"tarifa": "12.58",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LINCE",
+		"tarifa": "6",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LA PUNTA",
+		"tarifa": "12.58",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LA VICTORIA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "VILLA MARIA DEL TRIUNFO",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "VILLA EL SALVADOR",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN MARTIN DE PORRES",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN MIGUEL",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN JUAN DE LURIGANCHO",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN JUAN DE MIRAFLORES",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SAN LUIS",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LOS OLIVOS",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "RIMAC",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "RIMAC",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "PUENTE PIEDRA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LIMA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "COMAS",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LA MOLINA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "ATE",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "INDEPENDENCIA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "EL AGUSTINO",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "SALAMANCA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"distrito": "LURIGANCHO-CHOSICA",
+		"tarifa": "20",
+		"precio_final": "20"
+	}
+	
+	
+
+	
+	
+]

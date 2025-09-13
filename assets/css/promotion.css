@@ -1,0 +1,37 @@
+.mos__block__promo{
+  padding:0 0 100px;
+}
+@media (max-width: 1100px){
+  .mos__block__promo{
+    padding:0 0 50px;
+  }
+}
+@media (max-width: 743px){
+  .mos__block__promo .image{
+    height:380px;
+    -o-object-fit:cover;
+       object-fit:cover;
+  }
+}
+.mos__block__promo__content{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  max-width:768px;
+  margin:0 auto;
+  padding:0 40px 50px;
+}
+.mos__block__promo__content h2,
+.mos__block__promo__content h3{
+  text-align:center;
+  color:var(--white);
+  margin:0 0 20px;
+}
+.mos__block__promo__content .mos__btn{
+  display:block;
+  margin:0 auto;
+}
+
+/*# sourceMappingURL=promotion.css.map*/

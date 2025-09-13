@@ -1,0 +1,88 @@
+.mos__block__cb{
+  padding:50px 0;
+}
+.mos__block__cb .mos__container{
+  max-width:680px;
+}
+.mos__block__cb .mos__container > p, .mos__block__cb .mos__container > h2{
+  text-align:center;
+}
+@media (min-width: 743px){
+  .mos__block__cb .mos__container > h2{
+    font-size:32px;
+  }
+}
+.mos__block__cb .mos__container > p{
+  margin:0;
+}
+.mos__block__cb p{
+  font-size:14px;
+}
+.mos__block__cb ul{
+  margin:0;
+  padding:0;
+  gap:30px;
+}
+.mos__block__cb ul li{
+  list-style:none;
+  flex-basis:0;
+  flex-grow:1;
+  max-width:300px;
+  min-width:300px;
+}
+.mos__block__cb ul li input{
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+}
+.mos__block__cb ul li input:checked + span{
+  background:var(--primary);
+  color:var(--white);
+}
+.mos__block__cb ul li span{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:var(--primary);
+  font-size:16px;
+  font-weight:500;
+  text-align:center;
+  padding:8px 10px;
+  border:1px solid var(--primary);
+  background:var(--white);
+  height:100%;
+}
+.mos__block__cb textarea{
+  height:39px;
+  min-height:39px;
+}
+.mos__block__cb select{
+  padding:10px 3px;
+}
+.mos__block__cb #tipo-doc-cb option:nth-child(2){
+  display:none;
+}
+@media screen and (max-width: 767px){
+  .mos__block__cb #tipo-doc-cb option:nth-child(1){
+    display:none;
+  }
+  .mos__block__cb #tipo-doc-cb option:nth-child(2){
+    display:block;
+  }
+}
+.mos__block__cb #mos-form-cb-message{
+  margin:20px auto 0;
+  text-align:center;
+}
+.mos__block__cb .ds-flex-2 .form-input:nth-child(1){
+  width:40%;
+}
+.mos__block__cb .ds-flex-2 .form-input:nth-child(2){
+  width:55%;
+}
+
+/*# sourceMappingURL=complaints-book.css.map*/

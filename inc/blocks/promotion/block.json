@@ -1,0 +1,18 @@
+{
+	"name": "acf/promotion",
+	"title": "Promotion",
+	"description": "Block promotion.",
+	"style": "block-promotion",
+	"script": "block-promotion",
+	"category": "mos-blocks",
+	"icon": "admin-comments",
+	"keywords": ["promotion"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "promotion.php"
+	},
+	"align": "full",
+	"supports": {
+		"anchor": true
+	}
+}

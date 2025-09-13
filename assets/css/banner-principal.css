@@ -1,0 +1,66 @@
+.mos__block__banner{
+  background-color:var(--black);
+  background-position:50%;
+  background-repeat:no-repeat;
+  background-size:cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:550px;
+  height:68vh;
+  position:relative;
+}
+.mos__block__banner .image,
+.mos__block__banner video{
+  height:100%;
+  left:0;
+  -o-object-fit:cover;
+     object-fit:cover;
+  -o-object-position:center;
+     object-position:center;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+.mos__block__banner:after{
+  content:"";
+  display:block;
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  background:rgba(0, 0, 0, 0.25);
+}
+.mos__block__banner__content{
+  position:relative;
+  margin-bottom:50px;
+  z-index:1;
+}
+.mos__block__banner__content h1,
+.mos__block__banner__content h2,
+.mos__block__banner__content h3{
+  font-family:"Montserrat-SemiBold", sans-serif;
+  font-weight:600;
+  margin:10px 0 20px;
+}
+.mos__block__banner__content h1,
+.mos__block__banner__content h2,
+.mos__block__banner__content h3,
+.mos__block__banner__content p,
+.mos__block__banner__content a{
+  color:var(--white);
+  text-align:center;
+}
+.mos__block__banner__content p{
+  margin:0;
+}
+.mos__block__banner__content p a{
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.mos__block__banner__content .ds-flex .mos__btn:nth-child(2){
+  margin:0 0 0 25px;
+}
+
+/*# sourceMappingURL=banner-principal.css.map*/

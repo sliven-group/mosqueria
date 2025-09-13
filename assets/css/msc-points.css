@@ -1,0 +1,110 @@
+.mos__block__mscpoints{
+  padding:0 0 100px;
+}
+@media (max-width: 743px){
+  .mos__block__mscpoints{
+    padding:0 0 50px;
+  }
+}
+.mos__block__mscpoints .pointCals{
+  border:2px solid var(--primary);
+  text-align:center;
+  background:var(--white);
+  width:70%;
+  margin:0 auto;
+  padding:50px 20px;
+}
+@media (max-width: 743px){
+  .mos__block__mscpoints .pointCals{
+    width:100%;
+  }
+}
+.mos__block__mscpoints .pointCals div{
+  display:inline-block;
+  vertical-align:middle;
+}
+.mos__block__mscpoints h2{
+  font-family:"Montserrat-Regular", sans-serif;
+  font-weight:400;
+  margin:0 0 50px;
+  font-size:30px;
+  color:var(--primary);
+}
+@media (max-width: 743px){
+  .mos__block__mscpoints h2{
+    font-size:26px;
+  }
+}
+.mos__block__mscpoints p{
+  font-size:15px;
+}
+.mos__block__mscpoints .circlenumber{
+  background-color:var(--primary);
+  border-radius:50%;
+  height:80px;
+  width:80px;
+  position:relative;
+}
+.mos__block__mscpoints .circlenumber .getPoints{
+  color:var(--white);
+  font-size:20px;
+  font-family:"Montserrat-Bold", sans-serif;
+  left:0;
+  line-height:20px;
+  padding:0 5px;
+  position:absolute;
+  top:50%;
+  width:100%;
+  word-wrap:break-word;
+  transform:translateY(-50%);
+}
+.mos__block__mscpoints .circlenumber .getPoints span:last-child{
+  font-size:10px;
+  text-transform:uppercase;
+  display:block;
+  line-height:12px;
+}
+.mos__block__mscpoints .equalSign{
+  margin:0 5%;
+}
+.mos__block__mscpoints .desc{
+  display:block !important;
+  margin:25px 0 0;
+}
+.mos__block__mscpoints .desc p{
+  margin:0;
+}
+.mos__block__mscpoints .items{
+  margin-top:50px;
+  gap:50px;
+}
+.mos__block__mscpoints .items .item img{
+  max-height:90px;
+  margin:0 auto;
+}
+@media (max-width: 743px){
+  .mos__block__mscpoints .items .item img{
+    max-height:70px;
+  }
+}
+.mos__block__mscpoints .items h3,
+.mos__block__mscpoints .items h4,
+.mos__block__mscpoints .items p{
+  text-align:center;
+}
+.mos__block__mscpoints .items h3,
+.mos__block__mscpoints .items h4{
+  font-size:20px;
+  margin:20px 0 15px;
+}
+@media (max-width: 743px){
+  .mos__block__mscpoints .items h3,
+  .mos__block__mscpoints .items h4{
+    font-size:19px;
+  }
+}
+.mos__block__mscpoints .items p{
+  margin:0;
+}
+
+/*# sourceMappingURL=msc-points.css.map*/

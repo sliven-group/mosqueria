@@ -1,0 +1,1730 @@
+[
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "BAGUA",
+		"distrito": "BAGUA",
+		"ciudad": "BAGUA CHICA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "UTCUBAMBA",
+		"distrito": "BAGUA GRANDE",
+		"ciudad": "BAGUA GRANDE",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "LUYA",
+		"distrito": "CAMPORREDONDO",
+		"ciudad": "CAMPORREDONDO",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "CHACHAPOYAS",
+		"distrito": "CHACHAPOYAS",
+		"ciudad": "CHACHAPOYAS",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "UTCUBAMBA",
+		"distrito": "CUMBA",
+		"ciudad": "CUMBA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "UTCUBAMBA",
+		"distrito": "EL MILAGRO",
+		"ciudad": "EL MILAGRO",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "BAGUA",
+		"distrito": "IMAZA",
+		"ciudad": "CHIRIACO-IMAZA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "UTCUBAMBA",
+		"distrito": "LONYA GRANDE",
+		"ciudad": "",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "CONDORCANQUI",
+		"distrito": "NIEVA",
+		"ciudad": "NIEVA",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "LUYA",
+		"distrito": "OCALLI",
+		"ciudad": "OCALLI",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "AMAZONAS",
+		"provincia": "RODRIGUEZ DE MENDOZA",
+		"distrito": "SAN NICOLAS",
+		"ciudad": "RODRIGUEZ DE MENDOZA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "AIJA",
+		"distrito": "AIJA",
+		"ciudad": "AIJA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "CASMA",
+		"distrito": "CASMA",
+		"ciudad": "CASMA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "HUARMEY",
+		"distrito": "HUARMEY",
+		"ciudad": "HUARMEY",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "ANTONIO RAYMONDI",
+		"distrito": "LLAMELLIN",
+		"ciudad": "LLAMELLIN",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "ASUNCION",
+		"distrito": "CHACAS",
+		"ciudad": "CHACAS",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "BOLOGNESI",
+		"distrito": "CHIQUIAN",
+		"ciudad": "CHIQUIAN",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "CARLOS FERMIN FITZCARRALD",
+		"distrito": "SAN LUIS",
+		"ciudad": "SAN LUIS",
+		"tarifa": "37.9",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "MARISCAL LUZURIAGA",
+		"distrito": "PISCOBAMBA",
+		"ciudad": "PISCOBAMBA",
+		"tarifa": "37.9",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "POMABAMBA",
+		"distrito": "POMABAMBA",
+		"ciudad": "POMABAMBA",
+		"tarifa": "37.9",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "CARHUAZ",
+		"distrito": "CARHUAZ",
+		"ciudad": "CARHUAZ",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "HUAYLAS",
+		"distrito": "CARAZ",
+		"ciudad": "CARAZ",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "YUNGAY",
+		"distrito": "YUNGAY",
+		"ciudad": "YUNGAY",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "HUARI",
+		"distrito": "HUARI",
+		"ciudad": "HUARI",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "HUARAZ",
+		"distrito": "HUARAZ",
+		"ciudad": "HUARAZ",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "SANTA",
+		"distrito": "CHIMBOTE",
+		"ciudad": "CHIMBOTE",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "SANTA",
+		"distrito": "NUEVO CHIMBOTE",
+		"ciudad": "NUEVO CHIMBOTE",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ANCASH",
+		"provincia": "SIHUAS",
+		"distrito": "SIHUAS",
+		"ciudad": "SIHUAS",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "APURIMAC",
+		"provincia": "ABANCAY",
+		"distrito": "ABANCAY",
+		"ciudad": "ABANCAY",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "APURIMAC",
+		"provincia": "ABANCAY",
+		"distrito": "CARAHUASI",
+		"ciudad": "CARAHUASI",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "APURIMAC",
+		"provincia": "ANDAHUAYLAS",
+		"distrito": "ANDAHUAYLAS",
+		"ciudad": "ANDAHUAYLAS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "APURIMAC",
+		"provincia": "AYMARAES",
+		"distrito": "CHALHUANCA",
+		"ciudad": "CHALHUANCA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "APURIMAC",
+		"provincia": "CHINCHEROS",
+		"distrito": "CHINCHEROS",
+		"ciudad": "",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "APURIMAC",
+		"provincia": "GRAU",
+		"distrito": "CHUQUIBAMBILLA",
+		"ciudad": "CHUQUIBAMBILLA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "AREQUIPA",
+		"distrito": "AREQUIPA",
+		"ciudad": "AREQUIPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "AREQUIPA",
+		"distrito": "CERRO COLORADO",
+		"ciudad": "AREQUIPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "AREQUIPA",
+		"distrito": "JOSE LUIS BUSTAMANTE Y RIVERO",
+		"ciudad": "AREQUIPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "AREQUIPA",
+		"distrito": "JOSE LUIS BUSTAMANTE Y RIVERO",
+		"ciudad": "AREQUIPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "AREQUIPA",
+		"distrito": "MIRAFLORES",
+		"ciudad": "AREQUIPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "AREQUIPA",
+		"distrito": "MIRAFLORES",
+		"ciudad": "AREQUIPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "CASTILLA",
+		"distrito": "APLAO",
+		"ciudad": "APLAO",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "CAYLLOMA",
+		"distrito": "CHIVAY",
+		"ciudad": "CHIVAY",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "CAYLLOMA",
+		"distrito": "EL PEDREGAL (MAJES)",
+		"ciudad": "EL PEDREGAL",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "CAMANA",
+		"distrito": "CAMANA",
+		"ciudad": "CAMANA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "AREQUIPA",
+		"provincia": "ISLAY",
+		"distrito": "MOLLENDO",
+		"ciudad": "MOLLENDO",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "HUAMANGA",
+		"distrito": "AYACUCHO",
+		"ciudad": "AYACUCHO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "HUAMANGA",
+		"distrito": "AYACUCHO",
+		"ciudad": "AYACUCHO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "HUANTA",
+		"distrito": "HUANTA",
+		"ciudad": "HUANTA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "CANGALLO",
+		"distrito": "CANGALLO",
+		"ciudad": "CANGALLO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "LA MAR",
+		"distrito": "AYNA",
+		"ciudad": "SAN FRANCISCO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "LA MAR",
+		"distrito": "SAN MIGUEL",
+		"ciudad": "SAN MIGUEL",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "LUCANAS",
+		"distrito": "PUQUIO",
+		"ciudad": "PUQUIO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "PARINACOCHAS",
+		"distrito": "CORACORA",
+		"ciudad": "CORA CORA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "SUCRE",
+		"distrito": "QUEROBAMBA",
+		"ciudad": "QUEROBAMBA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "AYACUCHO",
+		"provincia": "VICTOR FAJARDO",
+		"distrito": "HUANCAPI",
+		"ciudad": "HUANCAPI",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CAJAMARCA",
+		"distrito": "CAJAMARCA",
+		"ciudad": "CAJAMARCA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CAJABAMBA",
+		"distrito": "CAJABAMBA",
+		"ciudad": "CAJABAMBA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CELENDIN",
+		"distrito": "CELENDIN",
+		"ciudad": "CELENDIN",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CHOTA",
+		"distrito": "CHOTA",
+		"ciudad": "CHOTA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CONTUMAZA",
+		"distrito": "CONTUMAZA",
+		"ciudad": "CONTUMAZA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CONTUMAZA",
+		"distrito": "CHILETE",
+		"ciudad": "CHILETE",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CUTERVO",
+		"distrito": "CUTERVO",
+		"ciudad": "CUTERVO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "HUALGAYOC",
+		"distrito": "BAMBAMARCA",
+		"ciudad": "BAMBAMARCA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "SAN MIGUEL",
+		"distrito": "SAN MIGUEL",
+		"ciudad": "SAN MIGUEL",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "SAN PABLO",
+		"distrito": "SAN PABLO",
+		"ciudad": "SAN PABLO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "SAN MARCOS",
+		"distrito": "PEDRO GALVEZ",
+		"ciudad": "SAN MARCOS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "CONTUMAZA",
+		"distrito": "CONTUMAZA",
+		"ciudad": "CONTUMAZA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "JAEN",
+		"distrito": "JAEN",
+		"ciudad": "JAEN",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "JAEN",
+		"distrito": "PUCARA",
+		"ciudad": "PUCARA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "SAN IGNACIO",
+		"distrito": "SAN IGNACIO",
+		"ciudad": "SAN IGNACIO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "SAN IGNACIO",
+		"distrito": "NAMBALLE",
+		"ciudad": "NAMBALLE",
+		"tarifa": "37.9",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CAJAMARCA",
+		"provincia": "SANTA CRUZ",
+		"distrito": "SANTA CRUZ",
+		"ciudad": "SANTA CRUZ",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "CUSCO",
+		"distrito": "CUSCO",
+		"ciudad": "CUSCO",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "CUSCO",
+		"distrito": "WANCHAQ",
+		"ciudad": "WANCHAG MARCAVALLE",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "CUSCO",
+		"distrito": "WANCHAG",
+		"ciudad": "WANCHAG MARCAVALLE",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "CANCHIS",
+		"distrito": "SICUANI",
+		"ciudad": "SICUANI",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "ESPINAR",
+		"distrito": "ESPINAR",
+		"ciudad": "YAURI ESPINAR",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "LA CONVENCION",
+		"distrito": "PICHARI",
+		"ciudad": "PICHARI",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "LA CONVENCION",
+		"distrito": "SANTA ANA",
+		"ciudad": "QUILLABAMBA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "CUSCO",
+		"provincia": "URUBAMBA",
+		"distrito": "URUBAMBA",
+		"ciudad": "URUBAMBA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "ACOBAMBA",
+		"distrito": "ACOBAMBA",
+		"ciudad": "ACOBAMBA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "ANGARAES",
+		"distrito": "LIRCAY",
+		"ciudad": "LIRCAY",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "CASTROVIRREYNA",
+		"distrito": "CASTROVIRREYNA",
+		"ciudad": "CASTROVIRREYNA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "HUAYTARA",
+		"distrito": "HUAYTARA",
+		"ciudad": "HUAYTARA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "CHURCAMPA",
+		"distrito": "CHURCAMPA",
+		"ciudad": "CHURCAMPA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "HUANCAVELICA",
+		"distrito": "HUANCAVELICA",
+		"ciudad": "HUANCAVELICA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "HUANCAVELICA",
+		"provincia": "TAYACAJA",
+		"distrito": "PAMPAS",
+		"ciudad": "PAMPAS",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "HUANUCO",
+		"provincia": "HUANUCO",
+		"distrito": "HUANUCO",
+		"ciudad": "HUANUCO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "HUANUCO",
+		"provincia": "HUANUCO",
+		"distrito": "AMARILIS",
+		"ciudad": "AMARILIS",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "HUANUCO",
+		"provincia": "MARAÑON",
+		"distrito": "HUACRACHUCO",
+		"ciudad": "HUACRACHUCO",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "HUANUCO",
+		"provincia": "HUACAYBAMBA",
+		"distrito": "HUACAYBAMBA",
+		"ciudad": "HUACAYBAMBA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "HUANUCO",
+		"provincia": "LEONCIO PRADO",
+		"distrito": "JOSE CRESPO Y CASTILLO",
+		"ciudad": "AUCAYACU",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "HUANUCO",
+		"provincia": "LEONCIO PRADO",
+		"distrito": "RUPA-RUPA",
+		"ciudad": "TINGO MARIA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ICA",
+		"provincia": "CHINCHA",
+		"distrito": "CHINCHA ALTA",
+		"ciudad": "CHINCHA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ICA",
+		"provincia": "ICA",
+		"distrito": "ICA",
+		"ciudad": "ICA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ICA",
+		"provincia": "ICA",
+		"distrito": "ICA",
+		"ciudad": "ICA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ICA",
+		"provincia": "NAZCA",
+		"distrito": "MARCONA",
+		"ciudad": "MARCONA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "ICA",
+		"provincia": "NAZCA",
+		"distrito": "NAZCA",
+		"ciudad": "NAZCA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "ICA",
+		"provincia": "PISCO",
+		"distrito": "PISCO",
+		"ciudad": "PISCO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "HUANCAYO",
+		"distrito": "HUANCAYO",
+		"ciudad": "HUANCAYO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "HUANCAYO",
+		"distrito": "CHILCA",
+		"ciudad": "CHILCA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "HUANCAYO",
+		"distrito": "EL TAMBO",
+		"ciudad": "EL TAMBO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "JAUJA",
+		"distrito": "JAUJA",
+		"ciudad": "JAUJA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "CHANCHAMAYO",
+		"distrito": "CHANCHAMAYO - SAN RAMÓN",
+		"ciudad": "SAN RAMÓN",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "CHANCHAMAYO",
+		"distrito": "CHANCHAMAYO - LA MERCED",
+		"ciudad": "LA MERCED",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "CHANCHAMAYO",
+		"distrito": "CHANCHAMAYO - PICHANAKI",
+		"ciudad": "PICHANAKI",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "CHANCHAMAYO",
+		"distrito": "CHANCHAMAYO",
+		"ciudad": "PICHANAKI",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "YAULI",
+		"distrito": "LA OROYA",
+		"ciudad": "LA OROYA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "SATIPO",
+		"distrito": "PANGOA",
+		"ciudad": "PANGOA",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "SATIPO",
+		"distrito": "MAZAMARI",
+		"ciudad": "MAZAMARI",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "SATIPO",
+		"distrito": "SATIPO",
+		"ciudad": "SATIPO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "TARMA",
+		"distrito": "TARMA",
+		"ciudad": "TARMA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "JUNIN",
+		"provincia": "JUNIN",
+		"distrito": "JUNIN",
+		"ciudad": "JUNIN",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "TRUJILLO",
+		"distrito": "TRUJILLO",
+		"ciudad": "TRUJILLO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "SANCHEZ CARRION",
+		"distrito": "HUAMACHUCO",
+		"ciudad": "HUAMACHUCO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "GRAN CHIMU",
+		"distrito": "CASCAS",
+		"ciudad": "CASCAS",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "JULCAN",
+		"distrito": "JULCAN",
+		"ciudad": "JULCAN",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "SANTIAGO DE CHUCO",
+		"distrito": "SANTIAGO DE CHUCO",
+		"ciudad": "SANTIAGO DE CHUCO",
+		"tarifa": "20.3",
+		"precio_final": "21"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "BOLIVAR",
+		"distrito": "BOLIVAR",
+		"ciudad": "BOLIVAR",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "PATAZ",
+		"distrito": "TAYABAMBA",
+		"ciudad": "TAYABAMBA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "VIRU",
+		"distrito": "VIRU",
+		"ciudad": "VIRU",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "CHEPEN",
+		"distrito": "CHEPEN",
+		"ciudad": "CHEPEN",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "ASCOPE",
+		"distrito": "CHOCOPE",
+		"ciudad": "CHOCOPE",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LA LIBERTAD",
+		"provincia": "PACASMAYO",
+		"distrito": "PACASMAYO",
+		"ciudad": "PACASMAYO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LAMBAYEQUE",
+		"provincia": "CHICLAYO",
+		"distrito": "CHICLAYO",
+		"ciudad": "CHICLAYO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LAMBAYEQUE",
+		"provincia": "CHICLAYO",
+		"distrito": "CHICLAYO",
+		"ciudad": "CHICLAYO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LAMBAYEQUE",
+		"provincia": "CHICLAYO",
+		"distrito": "CHICLAYO",
+		"ciudad": "CHICLAYO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LAMBAYEQUE",
+		"provincia": "CHICLAYO",
+		"distrito": "PIMENTEL",
+		"ciudad": "PIMENTEL",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LAMBAYEQUE",
+		"provincia": "LAMBAYEQUE",
+		"distrito": "LAMBAYEQUE",
+		"ciudad": "LAMBAYEQUE",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "BARRANCA",
+		"distrito": "BARRANCA",
+		"ciudad": "BARRANCA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CANTA",
+		"distrito": "CANTA",
+		"ciudad": "CANTA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CAÑETE",
+		"distrito": "MALA",
+		"ciudad": "MALA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CAÑETE",
+		"distrito": "CHILCA",
+		"ciudad": "CHILCA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CAÑETE",
+		"distrito": "SAN VICENTE DE CAÑETE",
+		"ciudad": "CAÑETE",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "HUAURA",
+		"distrito": "HUACHO",
+		"ciudad": "HUACHO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "HUARAL",
+		"distrito": "HUARAL",
+		"ciudad": "HUARAL",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "HUARAL",
+		"distrito": "CHANCAY",
+		"ciudad": "CHANCAY",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "LIMA",
+		"distrito": "LURIN",
+		"ciudad": "LURIN",
+		"tarifa": "14.2",
+		"precio_final": "15"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "LIMA",
+		"distrito": "YAUYOS",
+		"ciudad": "YAUYOS",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "ALTO AMAZONAS",
+		"distrito": "YURIMAGUAS",
+		"ciudad": "",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "MAYNAS",
+		"distrito": "IQUITOS",
+		"ciudad": "IQUITOS",
+		"tarifa": "30.3",
+		"precio_final": "31"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "MAYNAS",
+		"distrito": "IQUITOS",
+		"ciudad": "IQUITOS",
+		"tarifa": "30.3",
+		"precio_final": "31"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "LORETO",
+		"distrito": "NAUTA",
+		"ciudad": "NAUTA",
+		"tarifa": "34",
+		"precio_final": "34"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "MARISCAL RAMON CASTILLA",
+		"distrito": "RAMON CASTILLA",
+		"ciudad": "CABALLOCOHA",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "REQUENA",
+		"distrito": "REQUENA",
+		"ciudad": "REQUENA",
+		"tarifa": "34",
+		"precio_final": "34"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "ALTO AMAZONAS",
+		"distrito": "YURIMAGUAS",
+		"ciudad": "YURIMAGUAS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "UCAYALI",
+		"distrito": "CONTAMANA",
+		"ciudad": "CONTAMANA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "LORETO",
+		"provincia": "DATEM DEL MARAÑON",
+		"distrito": "BARRANCA - SAN LORENZO",
+		"ciudad": "SAN LORENZO",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "MADRE DE DIOS",
+		"provincia": "TAMBOPATA",
+		"distrito": "TAMBOPATA",
+		"ciudad": "PUERTO MALDONADO",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "MOQUEGUA",
+		"provincia": "ILO",
+		"distrito": "ILO",
+		"ciudad": "ILO",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "MOQUEGUA",
+		"provincia": "MARISCAL NIETO",
+		"distrito": "MOQUEGUA",
+		"ciudad": "MOQUEGUA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PASCO",
+		"provincia": "PASCO",
+		"distrito": "CHAUPIMARCA",
+		"ciudad": "CERRO DE PASCO",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "PASCO",
+		"provincia": "OXAPAMPA",
+		"distrito": "OXAPAMPA",
+		"ciudad": "OXAPAMPA",
+		"tarifa": "15.2",
+		"precio_final": "16"
+	},
+	{
+		"departamento": "PASCO",
+		"provincia": "OXAPAMPA",
+		"distrito": "PUERTO BERMUDEZ",
+		"ciudad": "PUERTO BERMUDEZ",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "PASCO",
+		"provincia": "OXAPAMPA",
+		"distrito": "VILLA RICA",
+		"ciudad": "VILLA RICA",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "PASCO",
+		"provincia": "OXAPAMPA",
+		"distrito": "PALCAZU",
+		"ciudad": "PALCAZU",
+		"tarifa": "37.9",
+		"precio_final": "38"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "PIURA",
+		"distrito": "PIURA",
+		"ciudad": "PIURA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "PIURA",
+		"distrito": "PIURA",
+		"ciudad": "PIURA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "PIURA",
+		"distrito": "CATACAOS",
+		"ciudad": "CATACAOS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "PIURA",
+		"distrito": "TAMBO GRANDE",
+		"ciudad": "TAMBO GRANDE",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "AYABACA",
+		"distrito": "AYABACA",
+		"ciudad": "AYABACA",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "HUANCABAMBA",
+		"distrito": "HUANCABAMBA",
+		"ciudad": "HUANCABAMBA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "SECHURA",
+		"distrito": "SECHURA",
+		"ciudad": "SECHURA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "MORROPON",
+		"distrito": "MORROPON",
+		"ciudad": "MORROPON",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "MORROPON",
+		"distrito": "CHULUCANAS",
+		"ciudad": "CHULUCANAS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "PAITA",
+		"distrito": "PAITA",
+		"ciudad": "PAITA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "PAITA",
+		"distrito": "PAITA",
+		"ciudad": "PAITA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "SULLANA",
+		"distrito": "SULLANA",
+		"ciudad": "SULLANA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PIURA",
+		"provincia": "TALARA",
+		"distrito": "PARIÑAS",
+		"ciudad": "TALARA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PUNO",
+		"provincia": "PUNO",
+		"distrito": "PUNO",
+		"ciudad": "PUNO",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "PUNO",
+		"provincia": "MELGAR",
+		"distrito": "AYAVIRI",
+		"ciudad": "AYAVIRI",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "PUNO",
+		"provincia": "SAN ROMAN",
+		"distrito": "JULIACA",
+		"ciudad": "JULIACA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "PUNO",
+		"provincia": "SAN ROMAN",
+		"distrito": "JULIACA",
+		"ciudad": "JULIACA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "MOYOBAMBA",
+		"distrito": "MOYOBAMBA",
+		"ciudad": "MOYOBAMBA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "MOYOBAMBA",
+		"distrito": "SORITOR",
+		"ciudad": "SORITOR",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "BELLAVISTA",
+		"distrito": "BELLAVISTA",
+		"ciudad": "BELLAVISTA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "EL DORADO",
+		"distrito": "SAN JOSE DE SISA",
+		"ciudad": "SAN JOSE DE SISA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "HUALLAGA",
+		"distrito": "SAPOSOA",
+		"ciudad": "SAPOSOA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "LAMAS",
+		"distrito": "LAMAS",
+		"ciudad": "LAMAS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "LAMAS",
+		"distrito": "TABALOSOS",
+		"ciudad": "TABALOSOS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "MARISCAL CACERES",
+		"distrito": "JUANJUI",
+		"ciudad": "JUANJUI",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "MARISCAL CACERES",
+		"distrito": "CAMPANILLA",
+		"ciudad": "CAMPANILLA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "PICOTA",
+		"distrito": "PICOTA",
+		"ciudad": "PICOTA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "PICOTA",
+		"distrito": "SAN HILARION",
+		"ciudad": "SAN HILARION",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "RIOJA",
+		"distrito": "NUEVA CAJAMARCA",
+		"ciudad": "NUEVA CAJAMARCA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "RIOJA",
+		"distrito": "RIOJA",
+		"ciudad": "RIOJA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "RIOJA",
+		"distrito": "PARDO MIGUEL",
+		"ciudad": "NARANJOS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "SAN MARTIN",
+		"distrito": "TARAPOTO",
+		"ciudad": "TARAPOTO",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "SAN MARTIN",
+		"distrito": "TARAPOTO",
+		"ciudad": "TARAPOTO",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "TOCACHE",
+		"distrito": "TOCACHE",
+		"ciudad": "TOCACHE",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "TOCACHE",
+		"distrito": "NUEVO PROGRESO",
+		"ciudad": "NUEVO PROGRESO",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "SAN MARTIN",
+		"provincia": "TOCACHE",
+		"distrito": "UCHIZA",
+		"ciudad": "UCHIZA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "TACNA",
+		"provincia": "TACNA",
+		"distrito": "TACNA",
+		"ciudad": "TACNA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "TACNA",
+		"provincia": "TACNA",
+		"distrito": "TACNA",
+		"ciudad": "TACNA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "TACNA",
+		"provincia": "TACNA",
+		"distrito": "CORONEL GREGORIO ALBARRACIN LANCHIPA",
+		"ciudad": "CORONEL GREGORIO ALBARRACIN LANCHIPA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "TUMBES",
+		"provincia": "TUMBES",
+		"distrito": "TUMBES",
+		"ciudad": "TUMBES",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "TUMBES",
+		"provincia": "TUMBES",
+		"distrito": "TUMBES",
+		"ciudad": "TUMBES",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "TUMBES",
+		"provincia": "ZARUMILLA",
+		"distrito": "ZARUMILLA",
+		"ciudad": "ZARUMILLA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "TUMBES",
+		"provincia": "CONTRALMIRANTE VILLAR",
+		"distrito": "ZORRITOS",
+		"ciudad": "ZORRITOS",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "UCAYALI",
+		"provincia": "CORONEL PORTILLO",
+		"distrito": "CALLERIA",
+		"ciudad": "PUCALLPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "UCAYALI",
+		"provincia": "CORONEL PORTILLO",
+		"distrito": "CALLERIA",
+		"ciudad": "PUCALLPA",
+		"tarifa": "22.5",
+		"precio_final": "23"
+	},
+	{
+		"departamento": "UCAYALI",
+		"provincia": "ATALAYA",
+		"distrito": "RAYMONDI",
+		"ciudad": "ATALAYA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "UCAYALI",
+		"provincia": "PADRE ABAD",
+		"distrito": "PADRE ABAD",
+		"ciudad": "AGUAYTIA",
+		"tarifa": "27.5",
+		"precio_final": "28"
+	},
+	{
+		"departamento": "UCAYALI",
+		"provincia": "PURUS",
+		"distrito": "PURUS",
+		"ciudad": "PURUS",
+		"tarifa": "43.1",
+		"precio_final": "44"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CALLAO",
+		"distrito": "LA PUNTA",
+		"ciudad": "LA PUNTA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CALLAO",
+		"distrito": "CALLAO",
+		"ciudad": "CALLAO",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CALLAO",
+		"distrito": "CARMEN DE LA LEGUA",
+		"ciudad": "CARMEN DE LA LEGUA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CALLAO",
+		"distrito": "BELLAVISTA",
+		"ciudad": "BELLAVISTA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CALLAO",
+		"distrito": "BELLAVISTA",
+		"ciudad": "BELLAVISTA",
+		"tarifa": "20",
+		"precio_final": "20"
+	},
+	{
+		"departamento": "LIMA",
+		"provincia": "CALLAO",
+		"distrito": "LA PERLA",
+		"ciudad": "LA PERLA",
+		"tarifa": "20",
+		"precio_final": "20"
+	}
+]

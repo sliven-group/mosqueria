@@ -1,0 +1,47 @@
+@import '../variables';
+@import '../mixin/media_queries';
+
+.mos__block__mscinteresting {
+	padding: 0 0 100px;
+	@include maxw($mq-md) {
+		padding: 0 0 50px;
+	}
+	h2 {
+		font-family: $montserratRegular;
+		font-weight: 400;
+		font-size: 30px;
+		color: var(--primary);
+		@include maxw($mq-sm) {
+			font-size: 26px;
+		}
+	}
+	.item {
+		margin: 30px 0 0;
+		img {
+			width: 100%;
+		}
+		h3 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: fit-content;
+			background: var(--white);
+			margin: 0 auto;
+			min-width: 367px;
+			padding: 15px 10px;
+			font-size: 16px;
+			font-family: $montserratMedium;
+			font-weight: 500;
+			@include maxw($mq-md) {
+				min-width: auto;
+				max-width: 90%;
+				padding: 15px;
+				font-size: 16px;
+			}
+		}
+	}
+	.mos__btn {
+		margin-top: 50px;
+	}
+}

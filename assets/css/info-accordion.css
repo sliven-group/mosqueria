@@ -1,0 +1,49 @@
+.mos__block__ia{
+  padding:50px 0;
+}
+.mos__block__ia .content{
+  width:100%;
+  max-width:991px;
+  margin:0 auto 50px;
+}
+.mos__block__ia .items{
+  width:100%;
+  max-width:700px;
+  margin:0 auto;
+}
+.mos__block__ia .items .item__header{
+  margin:0 0 40px;
+  cursor:pointer;
+}
+.mos__block__ia .items .item__header span{
+  font-size:16px;
+  font-family:"Montserrat-SemiBold", sans-serif;
+  width:calc(100% - 30px);
+}
+@media (max-width: 743px){
+  .mos__block__ia .items .item__header span{
+    font-size:16px;
+  }
+}
+.mos__block__ia .items .item__header svg,
+.mos__block__ia .items .item__header img{
+  position:relative;
+  top:4px;
+}
+.mos__block__ia .items .item__content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.3s ease-in;
+}
+.mos__block__ia .items .item__content table{
+  margin:0 0 20px;
+}
+.mos__block__ia .items .item__content p{
+  text-align:justify;
+}
+.mos__block__ia .items .item.active .item__content{
+  overflow:visible;
+  max-height:30000px;
+}
+
+/*# sourceMappingURL=info-accordion.css.map*/

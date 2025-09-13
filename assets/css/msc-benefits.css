@@ -1,0 +1,160 @@
+.mos__block__mscbenefits{
+  padding:0 0 100px;
+}
+@media (max-width: 743px){
+  .mos__block__mscbenefits{
+    padding:0 0 50px;
+  }
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap{
+  position:relative;
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap .benefit-heading{
+  vertical-align:top;
+  padding:15px 25px 11px 0;
+  font-size:12px;
+  text-align:left;
+  border-bottom:0;
+  background:transparent;
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap .benefit-heading .title br{
+  display:none;
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap .benefit-heading .title strong{
+  font-family:"Montserrat-SemiBold", sans-serif;
+  font-weight:600;
+  font-size:18px;
+  display:block;
+  padding-bottom:10px;
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap .benefit-heading .title span{
+  font-family:"Poppins-Regular", sans-serif;
+  font-weight:400;
+  font-size:11px;
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap .benefit-item{
+  font-weight:normal;
+  padding:11px 25px 11px 0;
+  font-size:13px;
+  color:#000;
+  letter-spacing:0.02em;
+  text-align:left;
+  line-height:1.5;
+  border-bottom:0;
+  background:transparent;
+  font-family:"Montserrat-Regular", sans-serif;
+  display:flex;
+  align-items:center;
+}
+.mos__block__mscbenefits .benefits-container-generate-wrap .benefits-container-generate{
+  position:absolute;
+  top:0px;
+  left:0px;
+  background-color:white;
+  border-right:1px solid #d1d1d1;
+  display:none;
+}
+@media (max-width: 743px){
+  .mos__block__mscbenefits .benefits-container-generate-wrap .benefits-container-generate{
+    display:block;
+  }
+}
+.mos__block__mscbenefits h2{
+  font-family:"Montserrat-Regular", sans-serif;
+  font-weight:400;
+  font-size:30px;
+  color:var(--primary);
+}
+@media (max-width: 743px){
+  .mos__block__mscbenefits h2{
+    font-size:26px;
+  }
+}
+.mos__block__mscbenefits .items{
+  margin:50px 0 0;
+}
+@media (max-width: 743px){
+  .mos__block__mscbenefits .item{
+    overflow:scroll;
+    overflow-y:hidden;
+  }
+}
+.mos__block__mscbenefits .item table{
+  border-spacing:0;
+  border-collapse:collapse;
+}
+.mos__block__mscbenefits .item .tableHeader{
+  width:23%;
+  vertical-align:top;
+  padding:15px 25px 11px 0;
+  font-size:12px;
+  text-align:left;
+  border-bottom:0;
+  background:transparent;
+}
+.mos__block__mscbenefits .item .tableHeader:not(:first-child){
+  padding-left:12px;
+  padding-right:13px;
+  text-align:center;
+  border:none;
+  border-left:1px solid #d1d1d1;
+  width:18%;
+}
+.mos__block__mscbenefits .item .tableHeader .title span,
+.mos__block__mscbenefits .item .tableHeader .tiers span{
+  font-family:"Poppins-Regular", sans-serif;
+  font-weight:400;
+  font-size:13px;
+}
+.mos__block__mscbenefits .item .tableHeader .tiers{
+  font-size:18px;
+  font-family:"Montserrat-SemiBold", sans-serif;
+  font-weight:600;
+}
+.mos__block__mscbenefits .item .tableHeader .title{
+  font-size:18px;
+}
+.mos__block__mscbenefits .item .tableHeader .title span{
+  font-size:11px;
+}
+.mos__block__mscbenefits .item .tableData{
+  font-weight:normal;
+  padding:11px 25px 11px 0;
+  font-size:13px;
+  color:#000;
+  letter-spacing:0.02em;
+  text-align:left;
+  line-height:1.5;
+  border-bottom:0;
+  background:transparent;
+}
+.mos__block__mscbenefits .item .tableData:not(:first-child){
+  text-align:center;
+  border:none;
+  border-left:1px solid #d1d1d1;
+  vertical-align:middle;
+  padding:0;
+  width:18%;
+}
+.mos__block__mscbenefits .item .title,
+.mos__block__mscbenefits .item .tableData{
+  font-family:"Montserrat-Regular", sans-serif;
+}
+.mos__block__mscbenefits .item .title strong,
+.mos__block__mscbenefits .item .tableData strong{
+  font-family:"Montserrat-SemiBold", sans-serif;
+  font-weight:600;
+}
+.mos__block__mscbenefits .item tbody tr:hover{
+  background-color:#f6f6f6;
+}
+.mos__block__mscbenefits .item .pointsEnabled{
+  width:6px;
+  height:6px;
+  background:var(--black);
+  border-radius:50px;
+  display:block;
+  margin:0 auto;
+}
+
+/*# sourceMappingURL=msc-benefits.css.map*/

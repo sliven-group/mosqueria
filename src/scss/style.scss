@@ -1,0 +1,39 @@
+// ==== STYLES ==== //
+
+// Configuration variables and settings
+:root {
+	--black: #000;
+	--white: #fff;
+	--white-alpha-80: rgba(255, 255, 255, 0.8);
+	--red: #ff0000;
+	--green: #008000;
+	--primary: #011e41;
+	--secondary: #003366;
+}
+
+@import 'variables';
+
+// add mixins
+@import 'mixin/_general';
+
+// load plugins
+@import 'swiper/scss';
+@import 'swiper/scss/scrollbar';
+//@import "swiper/scss/grid";
+//@import 'plugins_custom/datepicker';
+//@import 'plugins_custom/lightgallery';
+//@import 'plugins_custom/lg-zoom';
+//@import 'lightgallery/scss/lightgallery';
+//@import 'lightgallery/scss/lg-zoom';
+
+// global components styles
+@import 'base/_general';
+@import 'plugins_custom/general';
+@import 'components/buttons/buttons';
+@import 'components/header/header';
+@import 'components/card-product/card-product';
+@import 'components/wishlist/wishlist';
+@import 'components/cart/cart';
+@import 'components/modal/modal';
+@import 'components/tabs/tabs';
+@import 'components/footer/footer';

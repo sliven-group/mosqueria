@@ -1,0 +1,60 @@
+.mos__btn {
+	width: fit-content;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: $poppinsRegular;
+	border: 1px solid transparent;
+	text-align: center;
+	transition: all 0.3s;
+	svg,
+	img {
+		margin-right: 5px;
+		transition: all 0.3s;
+	}
+	&--primary {
+		color: var(--white);
+		background: var(--primary);
+		padding: 15px 20px;
+		min-width: 180px;
+		&:hover {
+			background: var(--primary-1);
+			color: var(--primary);
+			border: 1px solid var(--primary);
+		}
+	}
+	&--transparent {
+		color: var(--primary);
+		background: transparent;
+		padding: 15px 20px;
+		min-width: 180px;
+		border: 1px solid var(--primary);
+		&:hover {
+			background: var(--primary);
+			color: var(--white);
+		}
+	}
+	&--transparent-white {
+		color: var(--white);
+		background: transparent;
+		padding: 15px 20px;
+		min-width: 180px;
+		border: 1px solid var(--white);
+		&:hover {
+			background: var(--white);
+			color: var(--primary);
+		}
+	}
+	&--light {
+		color: var(--white);
+		border-bottom: 1px solid var(--white);
+	}
+	&--text {
+		text-decoration: underline;
+		color: var(--secondary);
+		padding: 15px 20px;
+		min-width: 180px;
+	}
+	[disabled] {
+		pointer-events: none;
+	}
+}

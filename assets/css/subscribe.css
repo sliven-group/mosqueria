@@ -1,0 +1,35 @@
+.mos__block__sub{
+  background:var(--primary);
+  padding:100px 0;
+}
+.mos__block__sub__content{
+  width:100%;
+  max-width:742px;
+  margin:0 auto;
+}
+.mos__block__sub__content h2,
+.mos__block__sub__content h3,
+.mos__block__sub__content p{
+  color:var(--white);
+  text-align:center;
+}
+.mos__block__sub__content h2,
+.mos__block__sub__content h3{
+  font-size:15px;
+  text-transform:uppercase;
+}
+.mos__block__sub__content p{
+  font-size:23px;
+}
+@media (max-width: 743px){
+  .mos__block__sub__content p{
+    font-size:20px;
+  }
+}
+.mos__block__sub__content .mos__btn{
+  margin:40px auto 0;
+  display:block;
+  font-size:12px;
+}
+
+/*# sourceMappingURL=subscribe.css.map*/

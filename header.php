@@ -454,7 +454,7 @@
 				<img width="15" height="15" src="<?php echo IMAGES . 'icon-close.svg'; ?>" alt="cerrar">
 			</button>
 		</div>
-		<div id="mos-carrito-result" class="mos__modal__content">
+		<div id="mos-carrito-result" class="mos__modal__content mos__modal__content_ajax">
 			<?php
 				$pathCart = get_stylesheet_directory() . '/partials/cart/cart.php';
 				if ( file_exists($pathCart) ) {

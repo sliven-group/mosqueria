@@ -122,6 +122,28 @@ function mosqueira_otorgar_puntos_registro($user_id) {
 		'Content-Type: text/html; charset=UTF-8',
 		"From: Mosqueira <mosqueiraonline@mosqueira.com.pe>",
 	]);
+
+
+	// -------------------------------
+	// Enviar notificación al administrador
+	// -------------------------------
+	
+	$admin_email = get_option('admin_email');
+
+	$first_name = get_user_meta($user_id, 'first_name', true);
+	$last_name = get_user_meta($user_id, 'last_name', true);
+
+	$subject_admin = 'Nuevo usuario registrado en tu sitio';
+
+	$message_admin = "Se ha registrado un nuevo usuario en tu sitio web:\n\n";
+	$message_admin .= "Nombre completo: " . trim($first_name . ' ' . $last_name) . "\n";
+	$message_admin .= "Nombre de usuario: " . $user->user_login . "\n";
+	$message_admin .= "Correo electrónico: " . $user->user_email . "\n";
+
+	wp_mail($admin_email, $subject_admin, $message_admin, [
+		'Content-Type: text/plain; charset=UTF-8',
+		"From: Mosqueira <mosqueiraonline@mosqueira.com.pe>",
+	]);
   
     
 }
@@ -331,24 +353,28 @@ function mosqueira_descuento_primera_compra_access($cart) {
     }
 
     $subtotal_precio_normal = 0;
+    $has_normal_product = false;
 
-    // Calcular subtotal solo de productos sin descuento (precio actual == precio regular)
     foreach ( $cart->get_cart() as $cart_item ) {
         $product = $cart_item['data'];
+        $is_pack = get_post_meta( $product->get_id(), '_is_custom_pack', true );
         $precio_regular = floatval($product->get_regular_price());
         $precio_actual = floatval($product->get_price());
 
-        if ($precio_actual >= $precio_regular) {
+        // Solo productos normales (no pack) con precio actual igual o mayor al regular (sin oferta)
+        if ( ! $is_pack && $precio_actual >= $precio_regular ) {
             $subtotal_precio_normal += $precio_actual * $cart_item['quantity'];
+            $has_normal_product = true;
         }
     }
 
-    // Si hay productos con precio normal, aplicar descuento del 15% sobre esos productos
-    if ($subtotal_precio_normal > 0) {
+    // Aplicar descuento solo si hay al menos un producto normal y subtotal positivo
+    if ( $has_normal_product && $subtotal_precio_normal > 0 ) {
         $descuento = $subtotal_precio_normal * 0.15;
         $cart->add_fee('15% de descuento - Primera compra (' . $categoria . ')', -$descuento);
     }
 }
+
 
 
 
@@ -511,44 +537,109 @@ function msc_by_user() {
 		'msc',
 		'msc_by_user_page_callback'
 	);
+
+	add_action("load-users_page_msc", 'msc_add_screen_options');
 }
 
-function msc_by_user_page_callback() {
-	if (array_key_exists('user', $_GET)) {
-		$user = $_GET['user'];
-	}else {
-		$user = get_current_user_id();
+function msc_add_screen_options() {
+	$option = 'msc_users_per_page';
+	$args = [
+		'label' => 'Usuarios por página',
+		'default' => 10,
+		'option' => $option
+	];
+	add_screen_option('per_page', $args);
+}
+
+add_filter('set-screen-option', function($status, $option, $value) {
+	if ('msc_users_per_page' === $option) {
+		return intval($value);
 	}
-	
+	return $status;
+}, 10, 3);
+
+function msc_by_user_page_callback() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
-	$data_user = get_userdata($user);
-	$data_user_id = $data_user->ID;
-	$categoria = get_user_meta($data_user_id, 'mosqueira_categoria', true);
 	$url_admin = get_admin_url();
-	?>
-	<div class="wrap">
-		<?php if( ( isset($_GET['page']) && isset($_GET['user']) ) ) :
-			$puntos = get_user_meta($data_user_id, 'mosqueira_puntos', true);
+
+	if (isset($_GET['user'])) {
+		// Vista individual
+		$user = intval($_GET['user']);
+		$data_user = get_userdata($user);
+		$puntos = get_user_meta($user, 'mosqueira_puntos', true);
+		$categoria = get_user_meta($user, 'mosqueira_categoria', true);
 		?>
-			<h2>Su nivel actual: <strong><?php echo $categoria; ?></strong></h2>
+		<div class="wrap">
+			<h2>Su nivel actual: <strong><?php echo esc_html($categoria); ?></strong></h2>
 			<h3 style="font-weight:400">Subir puntos manualmente:</h3>
-			<input id="mos-input-update-msc" type="number" value="<?php echo $puntos; ?>">
+			<input id="mos-input-update-msc" type="number" value="<?php echo intval($puntos); ?>">
 			<button type="button" id="mos-uptate-msc" class="button button-primary">Actualizar</button>
-			<input type="hidden" name="urlajaxadm" id="urlajaxadm" value="<?php echo admin_url( 'admin-ajax.php' ); ?>">
-			<input type="hidden" name="mos-id-user" id="mos-id-user" value="<?php echo $data_user_id; ?>">
-		<?php else :
-			$usuarios = get_users([
-		        'meta_key' => 'mosqueira_puntos',
-		        'orderby' => 'meta_value_num',
-		        'order' => 'DESC',
-		        'role' => 'subscriber', // Solo suscriptores
-	    	]);
+			<input type="hidden" id="urlajaxadm" value="<?php echo admin_url('admin-ajax.php'); ?>">
+			<input type="hidden" id="mos-id-user" value="<?php echo esc_attr($user); ?>">
+		</div>
+		<script>
+			jQuery('#mos-uptate-msc').click(function () {
+				var number = jQuery('#mos-input-update-msc').val();
+				var ajaxUrl = jQuery('#urlajaxadm').val();
+				var idUser = jQuery('#mos-id-user').val();
+				jQuery.post(ajaxUrl, {
+					action: "update_points_msc",
+					puntos: number,
+					id_user: idUser
+				}).success(function (response) {
+					alert(response.data.message);
+				});
+			});
+		</script>
+		<?php
+	} else {
+		// Vista general (listado)
+		$search_email = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
+
+		$all_users = get_users([
+			'meta_key' => 'mosqueira_puntos',
+			'orderby' => 'meta_value_num',
+			'order' => 'DESC',
+			'role' => 'subscriber'
+		]);
+
+		// Filtrado por correo
+		if ($search_email) {
+			$all_users = array_filter($all_users, function ($user) use ($search_email) {
+				return stripos($user->user_email, $search_email) !== false;
+			});
+		}
+
+		// Paginación
+		$per_page = get_user_option('msc_users_per_page', get_current_user_id());
+		if (!$per_page || $per_page < 1) $per_page = 10;
+		$current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
+		$offset = ($current_page - 1) * $per_page;
+
+		$total_users = count($all_users);
+		$total_pages = ceil($total_users / $per_page);
+		$usuarios = array_slice($all_users, $offset, $per_page);
+
+		$base_url = remove_query_arg('paged', $_SERVER['REQUEST_URI']);
 		?>
-			<h2>Mosqueira Social Club</h2><br>
-				<div>
-				<a href="<?php echo admin_url('admin.php?exportar_msc=1'); ?>" class="button button-primary">Exportar Excel</a>
-			</div> <br>
+		<div class="wrap">
+			<h2>Mosqueira Social Club</h2>
+			<br>
+			<a href="<?php echo admin_url('admin.php?exportar_msc=1'); ?>" class="button button-primary">Exportar Excel</a>
+			<br><br>
+
+			<!-- Buscador -->
+			<form method="get">
+				<input type="hidden" name="page" value="msc" />
+				<input type="search" name="s" value="<?php echo esc_attr($search_email); ?>" placeholder="Buscar por correo..." />
+				<input type="submit" class="button" value="Buscar" />
+				<?php if ($search_email): ?>
+					<a href="<?php echo esc_url(remove_query_arg('s')); ?>" class="button">Limpiar</a>
+				<?php endif; ?>
+			</form>
+			<br>
+
 			<table class="widefat fixed striped">
 				<thead>
 					<tr>
@@ -570,96 +661,71 @@ function msc_by_user_page_callback() {
 					<?php foreach ($usuarios as $usuario) :
 						$user_id = $usuario->ID;
 						$puntos = get_user_meta($user_id, 'mosqueira_puntos', true);
-						$categoria = get_user_meta($user_id, 'mosqueira_categoria', true);						
-						$genero = get_user_meta($user_id, 'mos_genero', true);	
+						$categoria = get_user_meta($user_id, 'mosqueira_categoria', true);
+						$genero = get_user_meta($user_id, 'mos_genero', true);
 						$telefono = get_field('acf_user_phone', 'user_' . $user_id);
-   					 	$fecha_nacimiento = get_field('acf_user_fdn', 'user_' . $user_id);			
+						$fecha_nacimiento = get_field('acf_user_fdn', 'user_' . $user_id);
 						$first_name = get_user_meta($user_id, 'first_name', true);
 						$last_name = get_user_meta($user_id, 'last_name', true);
+						$direccion = get_user_meta($user_id, 'billing_address_1', true);
 						$departamento_id = get_user_meta($user_id, 'billing_departamento', true);
 						$provincia_id = get_user_meta($user_id, 'billing_provincia', true);
 						$distrito_id = get_user_meta($user_id, 'billing_distrito', true);
-						$direccion = get_user_meta($user_id, 'billing_address_1', true);	
-   					    $departamento = $wpdb->get_var(
-							$wpdb->prepare("SELECT departamento FROM {$prefix}ubigeo_departamento WHERE idDepa = %d", $departamento_id)
-						);
-						$provincia = $wpdb->get_var(
-							$wpdb->prepare("SELECT provincia FROM {$prefix}ubigeo_provincia WHERE idProv = %d", $provincia_id)
-						);
-						$distrito = $wpdb->get_var(
-							$wpdb->prepare("SELECT distrito FROM {$prefix}ubigeo_distrito WHERE idDist = %d", $distrito_id)
-						);
-					?>
-						<tr>					
-							<td><?php echo esc_html($first_name." ". $last_name); ?></td>
-							<td><?php echo esc_html($usuario->user_email); ?></td>						
+
+						$departamento = $wpdb->get_var($wpdb->prepare("SELECT departamento FROM {$prefix}ubigeo_departamento WHERE idDepa = %d", $departamento_id));
+						$provincia = $wpdb->get_var($wpdb->prepare("SELECT provincia FROM {$prefix}ubigeo_provincia WHERE idProv = %d", $provincia_id));
+						$distrito = ($departamento && $provincia) ? $wpdb->get_var($wpdb->prepare("SELECT distrito FROM {$prefix}ubigeo_distrito WHERE idDist = %d", $distrito_id)) : '';
+						?>
+						<tr>
+							<td><?php echo esc_html($first_name . ' ' . $last_name); ?></td>
+							<td><?php echo esc_html($usuario->user_email); ?></td>
 							<td><?php echo esc_html($telefono); ?></td>
 							<td>
-								<?php					
-									if ($fecha_nacimiento) {
-										$meses = [
-											'enero' => '01',
-											'febrero' => '02',
-											'marzo' => '03',
-											'abril' => '04',
-											'mayo' => '05',
-											'junio' => '06',
-											'julio' => '07',
-											'agosto' => '08',
-											'septiembre' => '09',
-											'octubre' => '10',
-											'noviembre' => '11',
-											'diciembre' => '12'
-										];
-										$dia = $fecha_nacimiento['acf_user_fdn_date'];
-										$mes_nombre = strtolower($fecha_nacimiento['acf_user_fdn_mes']);
-										$anio = $fecha_nacimiento['acf_user_fdn_ano'];
-										$mes_numero = isset($meses[$mes_nombre]) ? $meses[$mes_nombre] : '00';
-										$dia_formateado = str_pad($dia, 2, '0', STR_PAD_LEFT);
-										$mes_formateado = str_pad($mes_numero, 2, '0', STR_PAD_LEFT);
-										echo $dia_formateado . '/' . $mes_formateado . '/' . $anio;
-									}
-								?>						
+								<?php
+								if ($fecha_nacimiento) {
+									$meses = ['enero' => '01', 'febrero' => '02', 'marzo' => '03', 'abril' => '04', 'mayo' => '05', 'junio' => '06', 'julio' => '07', 'agosto' => '08', 'septiembre' => '09', 'octubre' => '10', 'noviembre' => '11', 'diciembre' => '12'];
+									$dia = $fecha_nacimiento['acf_user_fdn_date'];
+									$mes_nombre = strtolower($fecha_nacimiento['acf_user_fdn_mes']);
+									$anio = $fecha_nacimiento['acf_user_fdn_ano'];
+									$mes_num = $meses[$mes_nombre] ?? '00';
+									echo str_pad($dia, 2, '0', STR_PAD_LEFT) . '/' . $mes_num . '/' . $anio;
+								}
+								?>
 							</td>
-							
-							<td>
-								<?php echo esc_html($direccion); ?>	
-							</td>
-
-							<td>
-								<?php echo esc_html($departamento); ?>	
-							</td>
-							<td>
-								<?php echo esc_html($provincia); ?>	
-							</td>
-							<td>
-								<?php if($departamento && $provincia){ echo esc_html($distrito); } ?>	
-							</td>
-							<td>
-								<?php echo esc_html($genero); ?>	
-							</td>
+							<td><?php echo esc_html($direccion); ?></td>
+							<td><?php echo esc_html($departamento); ?></td>
+							<td><?php echo esc_html($provincia); ?></td>
+							<td><?php echo esc_html($distrito); ?></td>
+							<td><?php echo esc_html($genero); ?></td>
 							<td><?php echo intval($puntos); ?></td>
 							<td><?php echo esc_html($categoria); ?></td>
-							<td><a href="<?php echo $url_admin; ?>users.php?page=msc&user=<?php echo $user_id; ?>">Ver</a></td>
+							<td><a href="<?php echo esc_url(admin_url("users.php?page=msc&user={$user_id}")); ?>">Ver</a></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-		<?php endif; ?>
-	</div>
-	<script>
-		var ajaxUrl = jQuery('#urlajaxadm').val();
-		var idUser = jQuery('#mos-id-user').val();
 
-		jQuery('#mos-uptate-msc').click(function() {
-			var number = jQuery('#mos-input-update-msc').val();
-			jQuery.post(ajaxUrl, {
-				action: "update_points_msc",
-				puntos: number,
-				id_user: idUser
-			}).success(function(response){
-				alert(response.data.message);
-			});
-		});
-	</script>
-<?php } ?>
+			<?php if ($total_pages > 1): ?>
+				<div class="tablenav">
+					<div class="tablenav-pages">
+						<span class="displaying-num"><?php echo $total_users; ?> usuarios</span>
+						<span class="pagination-links">
+							<?php
+							$first_url = esc_url(add_query_arg(['paged' => 1], $base_url));
+							$prev_url = esc_url(add_query_arg(['paged' => max(1, $current_page - 1)], $base_url));
+							$next_url = esc_url(add_query_arg(['paged' => min($total_pages, $current_page + 1)], $base_url));
+							$last_url = esc_url(add_query_arg(['paged' => $total_pages], $base_url));
+							?>
+							<a class="first-page button" href="<?php echo $first_url; ?>">«</a>
+							<a class="prev-page button" href="<?php echo $prev_url; ?>">‹</a>
+							<span class="paging-input"><?php echo $current_page; ?> de <span class="total-pages"><?php echo $total_pages; ?></span></span>
+							<a class="next-page button" href="<?php echo $next_url; ?>">›</a>
+							<a class="last-page button" href="<?php echo $last_url; ?>">»</a>
+						</span>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+		<?php
+	}
+}

@@ -102,7 +102,7 @@
 			<li>No olvide usar su correo registrado al comprar en tienda, web o WhatsApp para acumular puntos por todas sus compras.</li>
 		</ul>
 		<?php if($puntos >= 5000): ?>
-			<div class="mos__msc__ben">
+			<!--<div class="mos__msc__ben">
 				<h3 class="mt-50">Beneficios Mensuales</h3>
 				<div class="ds-grid ds-grid__gap10 ds-grid__col3 mt-30">
 					<div class="item-msc ds-flex justify-center align-center">
@@ -122,7 +122,24 @@
 						</div>
 					</div>
 				</div>
+			</div> -->
+
+			<div class="mos__msc__ben">
+				<h3 class="mt-50">Beneficios Mensuales</h3>
+				<div class="ds-grid ds-grid__gap10 ds-grid__col2 mt-30">
+					<div class="item-msc item-msc--img ds-flex justify-center align-center">
+						<a href="https://api.whatsapp.com/send/?phone=%2B51908900915&text=Hola%2C%20deseo%20sumar%20los%20puntos%20de%20mi%20compra%20por%20WhatsApp%20a%20mi%20cuenta%20de%20Mosqueira%20Social%20Club&type=phone_number&app_absent=0" target="_blank">
+							<img loading="lazy" src="<?php echo IMAGES . 'beneficios_01.png'; ?>" alt="promoción">
+						</a>
+					</div>
+					<div class="item-msc item-msc--img ds-flex justify-center align-center">
+						<a href="https://api.whatsapp.com/send/?phone=%2B51908900915&text=Hola%2C%20deseo%20sumar%20los%20puntos%20de%20mi%20compra%20por%20WhatsApp%20a%20mi%20cuenta%20de%20Mosqueira%20Social%20Club&type=phone_number&app_absent=0" target="_blank">
+							<img loading="lazy" src="<?php echo IMAGES . 'beneficios_02.png'; ?>" alt="promoción">
+						</a>
+					</div>
+				</div>
 			</div>
+
 		<?php endif; ?>
 		<?php if($historial) : ?>
 			<div class="mos__msc__history">

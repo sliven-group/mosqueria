@@ -2,8 +2,8 @@
 	/* Template Name: Pedidos */
 
 	if (!is_user_logged_in()) {
-    wp_redirect(home_url());
-    exit;
+	    wp_redirect(home_url());
+	    exit;
 	}
 
 	function add_css_js() {
@@ -31,20 +31,15 @@
 	$orders = wc_get_orders($args);
 	$pedido_id = sanitize_text_field(get_query_var('pedido-id'));
 	$statuses = [
-    'Pedido confirmado',
-    'Pago aprobado',
-    'Pedido preparado',
-    'Enviando el pedido',
-    'Entregar pedido',
+	    'Pedido confirmado',
+	    'Pago aprobado',
+	    'Pedido preparado',
+	    'Enviando el pedido',
+	    'Entregar pedido',
 	];
 	$found = false;
-
-	//update_user_meta($current_user_id, 'mos_last_purchase_date', date('Y-m-d H:i:s', strtotime('-6 days')));
-
-	//$last_purchase_date = get_user_meta( $current_user_id, 'mos_last_purchase_date', true );
-	//var_dump($last_purchase_date);
-	//var_dump($pedido_id);
 ?>
+
 <section class="mos__account">
 	<div class="mos__container">
 		<ul class="mos__account__nav ds-flex align-center justify-center">
@@ -69,28 +64,28 @@
 		?>
 			<?php if(($order)) :
 				$id = $order->get_id();
-        $date = $order->get_date_created();
-        $departamento_id = $order->get_meta('_billing_departamento');
-        $provincia_id = $order->get_meta('_billing_provincia');
-        $distrito_id = $order->get_meta('_billing_distrito');
+                $date = $order->get_date_created();
+                $departamento_id = $order->get_meta('_billing_departamento');
+                $provincia_id = $order->get_meta('_billing_provincia');
+                $distrito_id = $order->get_meta('_billing_distrito');
 				$direccion = $order->get_meta('_billing_address_1');
 				$direccion_nro = $order->get_meta('_billing_address_2');
-        $departamento = $wpdb->get_var(
+                $departamento = $wpdb->get_var(
 					$wpdb->prepare("SELECT departamento FROM {$prefix}ubigeo_departamento WHERE idDepa = %d", $departamento_id)
-        );
-        $provincia = $wpdb->get_var(
+                );
+                $provincia = $wpdb->get_var(
 					$wpdb->prepare("SELECT provincia FROM {$prefix}ubigeo_provincia WHERE idProv = %d", $provincia_id)
-        );
-        $distrito = $wpdb->get_var(
+                );
+                $distrito = $wpdb->get_var(
 					$wpdb->prepare("SELECT distrito FROM {$prefix}ubigeo_distrito WHERE idDist = %d", $distrito_id)
-        );
+                );
 
-        $pay = $order->get_payment_method_title();
-        $sub_total = wc_price($order->get_subtotal());
-        $costo_de_envio = wc_price($order->get_shipping_total());
+                $pay = $order->get_payment_method_title();
+                $sub_total = wc_price($order->get_subtotal());
+                $costo_de_envio = wc_price($order->get_shipping_total());
 				$fees = $order->get_fees();
-        $desc = wc_price($order->get_discount_total());
-        $total = wc_price($order->get_total());
+                $desc = wc_price($order->get_discount_total());
+                $total = wc_price($order->get_total());
 			?>
 				<div class="woo__products">
 					<div id="<?php echo $id; ?>" class="woo__products__item">
@@ -100,27 +95,27 @@
 								<p>Fecha del pedido: <?php echo date_i18n('j \d\e F \d\e Y', $date->getTimestamp()); ?></p>
 								<p>Si su pedido es para provincia, recibirá el enlace y el código de rastreo en su correo antes de las 9:00 p. m.</p>
 							</div>
-							<div class="woo__products__status"><?php echo $delivery_status; ?></div>
+							<div class="woo__products__status"><?php echo esc_html($delivery_status); ?></div>
 						</div>
 						<div class="ds-grid ds-grid__col3">
 							<div class="item">
 								<h3>Dirección</h3>
 								<p>PERÚ</p>
 								<?php if(!empty($departamento)) : ?>
-									<p><?php echo $departamento; ?></p>
+									<p><?php echo esc_html($departamento); ?></p>
 								<?php endif; ?>
 								<?php if(!empty($provincia)) : ?>
-									<p><?php echo $provincia; ?></p>
+									<p><?php echo esc_html($provincia); ?></p>
 								<?php endif; ?>
 								<?php if(!empty($distrito)) : ?>
-									<p><?php echo $distrito; ?></p>
+									<p><?php echo esc_html($distrito); ?></p>
 								<?php endif; ?>
-								<p><?php echo $direccion; ?></p>
-								<p><?php echo $direccion_nro; ?></p>
+								<p><?php echo esc_html($direccion); ?></p>
+								<p><?php echo esc_html($direccion_nro); ?></p>
 							</div>
 							<div class="item">
 								<h3>Forma de pago</h3>
-								<?php echo $pay; ?>
+								<?php echo esc_html($pay); ?>
 							</div>
 							<div class="item">
 								<h3>Resumen</h3>
@@ -157,7 +152,7 @@
 							<div class="woo__products__state__container">
 								<div class="woo__products__state__inner ds-flex justify-space-between">
 								<?php foreach ( $statuses as $status ) : ?>
-                	<?php
+                					<?php
 										$active_class = '';
 										if ( ! $found ) {
 											$active_class = 'active';
@@ -166,10 +161,10 @@
 											}
 										}
 									?>
-										<div class="woo__products__state__line <?php echo $active_class; ?>">
-											<span><?php echo esc_html( $status ); ?></span>
-										</div>
-									<?php endforeach; ?>
+									<div class="woo__products__state__line <?php echo esc_attr($active_class); ?>">
+										<span><?php echo esc_html( $status ); ?></span>
+									</div>
+								<?php endforeach; ?>
 								</div>
 							</div>
 						</div>
@@ -185,48 +180,78 @@
 						$items = $order->get_items();
 						$delivery_status = $order->get_meta( 'delivery_status' );
 					?>
-						<div id="<?php echo $id; ?>" class="woo__products__item">
+						<div id="<?php echo esc_attr($id); ?>" class="woo__products__item">
 							<div class="ds-flex justify-space-between flex-wrap align-start">
 								<div class="woo__products__header">
-									<h2>Pedido #<?php echo $id; ?></h2>
+									<h2>Pedido #<?php echo esc_html($id); ?></h2>
 									<p>Fecha del pedido: <?php echo date_i18n('j \d\e F \d\e Y', $date->getTimestamp()); ?></p>
 								</div>
-								<div class="woo__products__status"><?php echo $delivery_status; ?></div>
+								<div class="woo__products__status"><?php echo esc_html($delivery_status); ?></div>
 							</div>
 							<div class="item-big ds-flex align-start justify-space-between">
 								<div>
 								<?php foreach ($items as $item_id => $item) :
 									/** @var WC_Order_Item_Product $item */
 									$product = $item->get_product();
+									$pack_items = $item->get_meta('_custom_pack_items', true);
 								?>
-									<?php if ($product) :
-										$product_name = $product->get_name();
-										$product_price = wc_price($product->get_price());
-										$quantity = $item->get_quantity();
-										$product_image = $product->get_image('thumbnail');
-										$attributes = $product->get_attributes();
-										$talla = isset($attributes['pa_talla']) ? $attributes['pa_talla'] : '';
-										//$color = isset($attributes['pa_color']) ? $attributes['pa_color']->get_terms()[0]->name : '';
-										$color = $item->get_meta( 'Color' );
-									?>
-										<div class="item-big__element ds-flex align-start justify-space-between">
+									<div class="item-big__element ds-flex align-start justify-space-between">
+										<?php if (!empty($pack_items) && is_array($pack_items)) : 
+											// Mostrar pack personalizado ?>
+											<div class="pack-items">
+												<h4><?php echo esc_html($product ? $product->get_name() : 'Pack personalizado'); ?></h4>
+												<ul>
+													<?php foreach ($pack_items as $variation_id => $pack_item_data) :
+														$pack_product = wc_get_product($variation_id);
+														if (!$pack_product) continue;
+														$image = wp_get_attachment_image_url($pack_product->get_image_id(), 'thumbnail');
+														$title = isset($pack_item_data['title']) ? $pack_item_data['title'] : $pack_product->get_name();
+														$quantity = isset($pack_item_data['quantity']) ? intval($pack_item_data['quantity']) : 1;
+														$size = isset($pack_item_data['size']) ? $pack_item_data['size'] : '';
+													?>
+														<li class="ds-flex align-center" style="margin-bottom:8px;">
+															<?php if ($image) : ?>
+																<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" style="max-width:60px; margin-right:10px;">
+															<?php endif; ?>
+															<span>
+																<?php echo esc_html($title); ?>
+																<?php if ($size) : ?>
+																	- Talla: <strong><?php echo esc_html($size); ?></strong>
+																<?php endif; ?>
+																(x<?php echo $quantity; ?>)
+															</span>
+														</li>
+													<?php endforeach; ?>
+												</ul>
+											</div>
+										<?php elseif ($product) : 
+											// Producto normal ?>
+											<?php
+												$product_name = $product->get_name();
+												$product_price = wc_price($product->get_price());
+												$quantity = $item->get_quantity();
+												$product_image = $product->get_image('thumbnail');
+												$attributes = $product->get_attributes();
+												$talla = isset($attributes['pa_talla']) ? $attributes['pa_talla'] : '';
+												$color = $item->get_meta( 'Color' );
+											?>
 											<?php echo $product_image; ?>
 											<div class="info">
-												<h4><?php echo $product_name; ?></h4>
+												<h4><?php echo esc_html($product_name); ?></h4>
 												<p><?php echo $product_price; ?></p>
-												<p>Cantidad: <?php echo $quantity; ?></p>
+												<p>Cantidad: <?php echo esc_html($quantity); ?></p>
 												<?php if(!empty($talla)) : ?>
-													<p>Talla: <span class="upper"><?php echo $talla; ?></span></p>
+													<p>Talla: <span class="upper"><?php echo esc_html($talla); ?></span></p>
 												<?php endif; ?>
 												<?php if(!empty($color)) : ?>
-													<p>Color: <?php echo $color; ?></p>
+													<p>Color: <?php echo esc_html($color); ?></p>
 												<?php endif; ?>
 											</div>
-										</div>
-									<?php endif; ?>
+										<?php endif; ?>
+									</div>
 								<?php endforeach; ?>
 								</div>
-								<a href="<?php echo home_url('mi-cuenta/pedidos/?pedido-id=') . $id; ?>" class="mos__btn mos__btn--primary">VER DETALLES DEL PEDIDO</a>
+								<a href="<?php echo home_url('mi-cuenta/pedidos/?pedido-id=') . esc_attr($id); ?>" class="mos__btn mos__btn--primary">VER DETALLES DEL PEDIDO</a>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -238,6 +263,7 @@
 		<?php endif; ?>
 	</div>
 </section>
+
 <?php
 	get_footer();
 ?>

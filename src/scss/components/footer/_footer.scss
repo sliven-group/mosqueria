@@ -71,3 +71,141 @@
 		}
 	}
 }
+
+.mos_packs{
+	padding: 60px 0px;
+	max-width: 767px;
+    margin: 0 auto;
+}
+.mos_packs_min_text{
+    font-size: 13px;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.mos_packs_wrap{
+	display: flex;
+	gap: 20px;
+	@media screen and (max-width: 768px) {
+		flex-flow: column-reverse;
+	}
+}
+.mos_packs_page_wrap{
+	.mos__container{
+		max-width: 1800px;
+	}
+}
+.mos_packs_page{
+	padding: 40px 0px;
+	.mos_packs_title{
+		text-align: left;
+	}
+}
+.mos_packs_title{
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 33px;
+}
+.mini-pack-cart{
+	position: sticky;
+    top: 131px;
+    background: #fff;
+    padding: 20px 20px;
+    z-index: 10;
+    border: 1px solid #c7c7c7;
+    border-radius: 4px;
+}
+.mini-pack-cart-wrap{
+	width: 26%;
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
+}
+.mos_packs_grid{
+	width: calc(100% - 26%);
+	display: grid;
+	grid-template-columns: repeat(4, calc(25% - 18px));
+	gap: 24px 24px;	
+	@media screen and (max-width: 1200px) {
+		.product-card__attrs{
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		grid-template-columns: repeat(2, calc(50% - 18px));
+		
+	}
+
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+		width: 100%;
+		
+	}
+
+
+}
+.mini-cart-item{
+	padding: 10px 0px;
+	border-bottom: 1px solid #c9c9c9;
+	margin-bottom: 10px;
+	position: relative;
+	padding-right: 27px;
+	&:last-child{
+		margin-bottom: 0px;
+		border-bottom: 0px;
+	}
+	button{
+		position: absolute;
+		top: 11px;
+		right: 0px;
+	}
+	.remove-item{
+		svg{
+			pointer-events: none;
+		}
+	}
+}
+.loading{
+	pointer-events: none;
+}
+#mini-pack-cart{
+	margin-bottom: 20px;
+}
+.pack-items-list{
+	.pack-item{
+		&:last-child{
+			border-bottom: 0px;
+			margin-bottom: 0px;
+			padding-bottom: 0px;
+		}
+	}
+}
+.pack-items-list{
+	.pack-item{
+		span{
+			font-size: 13px;
+			line-height: initial;
+		}
+	}
+}
+.mos_packs_col{
+	a{
+		display: block;
+		overflow: hidden;
+		border-radius: 4px;
+		@media screen and (min-width: 1024px) {
+			&:hover{
+				img{
+					transform: scale(1.05);
+				}				
+			}
+		}	
+	}
+	img{
+		transition: all 0.5s ease;
+		display: block;
+		
+	}
+}

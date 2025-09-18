@@ -28,6 +28,7 @@ window.addEventListener('load', function () {
   var modalCombine = document.getElementById('mos-modal-combine');
   var datacuponcustomServer = document.querySelectorAll('.data-cupon-custom-server');
   var datacuponcustomTemp = document.querySelectorAll('.data-cupon-custom-temp');
+  var cartFeesPriceQuantity = document.querySelector('.cart-fees-price');
   if (datacuponcustomServer.length > 0) {
     datacuponcustomTemp.forEach(function (element) {
       element.remove();
@@ -48,7 +49,6 @@ window.addEventListener('load', function () {
       params: formData,
       async: true,
       done: function done(response) {
-        //console.log(response);
         if (response.success) {
           if (resultCart) {
             var _response$data;
@@ -65,6 +65,10 @@ window.addEventListener('load', function () {
           if (total) {
             var _response$data4;
             total.innerHTML = response === null || response === void 0 || (_response$data4 = response.data) === null || _response$data4 === void 0 ? void 0 : _response$data4.total;
+          }
+          if (cartFeesPriceQuantity) {
+            var _response$data5;
+            cartFeesPriceQuantity.innerHTML = '-' + (response === null || response === void 0 || (_response$data5 = response.data) === null || _response$data5 === void 0 ? void 0 : _response$data5.discount_total);
           }
         }
       },
@@ -253,16 +257,16 @@ window.addEventListener('load', function () {
       done: function done(response) {
         if (response.success) {
           if (resultCart) {
-            var _response$data5;
-            resultCart.innerHTML = response === null || response === void 0 || (_response$data5 = response.data) === null || _response$data5 === void 0 ? void 0 : _response$data5.mini_cart;
+            var _response$data6;
+            resultCart.innerHTML = response === null || response === void 0 || (_response$data6 = response.data) === null || _response$data6 === void 0 ? void 0 : _response$data6.mini_cart;
           }
           if (countCart) {
-            var _response$data6;
-            countCart.innerHTML = response === null || response === void 0 || (_response$data6 = response.data) === null || _response$data6 === void 0 ? void 0 : _response$data6.cart_count;
+            var _response$data7;
+            countCart.innerHTML = response === null || response === void 0 || (_response$data7 = response.data) === null || _response$data7 === void 0 ? void 0 : _response$data7.cart_count;
           }
           if (modalCart) {
-            var _response$data7;
-            if ((response === null || response === void 0 || (_response$data7 = response.data) === null || _response$data7 === void 0 ? void 0 : _response$data7.cart_count) < 1) {
+            var _response$data8;
+            if ((response === null || response === void 0 || (_response$data8 = response.data) === null || _response$data8 === void 0 ? void 0 : _response$data8.cart_count) < 1) {
               modalCart.classList.add('cart-empty');
             } else {
               modalCart.classList.remove('cart-empty');
@@ -275,8 +279,8 @@ window.addEventListener('load', function () {
           }
         } else {
           if (messageResult) {
-            var _response$data8;
-            messageResult.innerHTML = "<p style=\"text-align:center; color:red; margin: 20px 0 0;\">".concat(response === null || response === void 0 || (_response$data8 = response.data) === null || _response$data8 === void 0 ? void 0 : _response$data8.message, "</p>");
+            var _response$data9;
+            messageResult.innerHTML = "<p style=\"text-align:center; color:red; margin: 20px 0 0;\">".concat(response === null || response === void 0 || (_response$data9 = response.data) === null || _response$data9 === void 0 ? void 0 : _response$data9.message, "</p>");
           }
         }
       },
@@ -320,16 +324,16 @@ window.addEventListener('load', function () {
             modalCombine.classList.remove('active');
           }
           if (resultCart) {
-            var _response$data9;
-            resultCart.innerHTML = response === null || response === void 0 || (_response$data9 = response.data) === null || _response$data9 === void 0 ? void 0 : _response$data9.mini_cart;
+            var _response$data0;
+            resultCart.innerHTML = response === null || response === void 0 || (_response$data0 = response.data) === null || _response$data0 === void 0 ? void 0 : _response$data0.mini_cart;
           }
           if (countCart) {
-            var _response$data0;
-            countCart.innerHTML = response === null || response === void 0 || (_response$data0 = response.data) === null || _response$data0 === void 0 ? void 0 : _response$data0.cart_count;
+            var _response$data1;
+            countCart.innerHTML = response === null || response === void 0 || (_response$data1 = response.data) === null || _response$data1 === void 0 ? void 0 : _response$data1.cart_count;
           }
           if (modalCart) {
-            var _response$data1;
-            if ((response === null || response === void 0 || (_response$data1 = response.data) === null || _response$data1 === void 0 ? void 0 : _response$data1.cart_count) < 1) {
+            var _response$data10;
+            if ((response === null || response === void 0 || (_response$data10 = response.data) === null || _response$data10 === void 0 ? void 0 : _response$data10.cart_count) < 1) {
               modalCart.classList.add('cart-empty');
             } else {
               modalCart.classList.remove('cart-empty');
@@ -341,8 +345,8 @@ window.addEventListener('load', function () {
             }, 600);
           }
         } else {
-          var _response$data10;
-          alert(response === null || response === void 0 || (_response$data10 = response.data) === null || _response$data10 === void 0 ? void 0 : _response$data10.message);
+          var _response$data11;
+          alert(response === null || response === void 0 || (_response$data11 = response.data) === null || _response$data11 === void 0 ? void 0 : _response$data11.message);
         }
       },
       error: function error() {
@@ -382,8 +386,14 @@ window.addEventListener('load', function () {
             _subTotal.innerHTML = response.data.subtotal;
           }
           var discount = document.querySelector('.cart-desc');
-          if (discount && response.data.discount_total && response.data.has_discount == true) {
+          var discountFees = document.querySelector('.cart-desc-fees');
+          //const cartFees = document.querySelector('.cart-fees');
+          var cartFeesPrice = document.querySelector('.cart-fees-price');
+          if (discount && response.data.discount_total && response.data.has_discount == true && !discountFees) {
             discount.innerHTML = "\n\t\t\t\t\t\t\t<div class=\"ds-flex justify-space-between\">\n\t\t\t\t\t\t\t<span>Descuento</span>\n\t\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t\t<strong>-".concat(response.data.discount_total, "</strong>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t");
+          }
+          if (cartFeesPrice) {
+            cartFeesPrice.innerHTML = '-' + response.data.discount_total;
           }
           var popCartDesc = document.querySelector('.pop-cart-desc');
           setTimeout(function () {
@@ -433,121 +443,220 @@ window.addEventListener('load', function () {
     body.classList.remove('no-scroll');
   });
 
-  //***********************************PACK
+  //***********************************PACK*****************************************
+
+  // Tabla de precios fijos por cantidad total de productos en el pack
+  var packPrices = {
+    2: 180.00,
+    3: 255.00,
+    4: 320.00,
+    5: 390.00,
+    6: 450.00
+  };
   var packItems = {};
   var miniCart = document.getElementById('mini-pack-cart');
   var addPackBtn = document.getElementById('add-pack-to-cart');
-  if (miniCart) {
-    // 🧩 Render mini-carrito
-    var renderMiniCart = function renderMiniCart() {
-      miniCart.innerHTML = '';
-      var totalItems = 0;
-      Object.keys(packItems).forEach(function (variationId) {
-        var item = packItems[variationId];
-        totalItems += item.quantity;
-        var div = document.createElement('div');
-        div.className = 'mini-cart-item';
-        div.innerHTML = "\n\t\t\t\t\t<strong>".concat(item.title, "</strong> - Talla: ").concat(item.size, " (x").concat(item.quantity, ")\n\t\t\t\t\t<button data-id=\"").concat(variationId, "\" class=\"remove-item\">x</button>\n\t\t\t\t");
-        miniCart.appendChild(div);
-      });
-      if (totalItems === 0) {
-        miniCart.innerHTML = '<p>No hay productos en el pack.</p>';
-        addPackBtn.style.display = 'none';
-      } else {
-        addPackBtn.style.display = 'inline-block';
-      }
-    }; // ➕ Agregar talla al pack
-    // 🔁 Cargar datos guardados
+  var errorMsgDiv = document.createElement('div');
+  errorMsgDiv.className = 'pack-error-message';
+  errorMsgDiv.style.color = 'red';
+  errorMsgDiv.style.marginTop = '10px';
+
+  // Cargar pack guardado en localStorage si existe
+  if (addPackBtn) {
     var savedPack = localStorage.getItem('mosqueira_pack');
     if (savedPack) {
       try {
         packItems = JSON.parse(savedPack);
       } catch (e) {
-        //console.error('Error al recuperar pack guardado:', e);
+        //console.error('Error al parsear pack del localStorage:', e);
       }
     }
-    document.querySelectorAll('.size-selector').forEach(function (ul) {
-      ul.addEventListener('click', function (e) {
-        if (e.target.classList.contains('size-option') && e.target.classList.contains('in-stock')) {
-          var variationId = e.target.dataset.variationId;
-          var size = e.target.dataset.size;
-          var title = ul.dataset.productTitle;
-          if (packItems[variationId]) {
-            packItems[variationId].quantity += 1;
-          } else {
-            packItems[variationId] = {
-              size: size,
-              title: title,
-              quantity: 1
-            };
-          }
 
-          // 💾 Guardar
-          localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
-          renderMiniCart();
+    // Evento: seleccionar talla
+    document.querySelectorAll('.size-option.in-stock').forEach(function (option) {
+      option.addEventListener('click', function () {
+        var variationId = option.dataset.id;
+        var size = option.dataset.talla;
+        var title = option.closest('.product-card').querySelector('h2').innerText;
+
+        // Sumar cantidad total actual + 1 para validar límite
+        var totalQty = 0;
+        Object.values(packItems).forEach(function (item) {
+          return totalQty += item.quantity;
+        });
+        if (totalQty >= 6) {
+          showError('Máximo 6 productos en el pack.');
+          return;
         }
+
+        // Agregar o aumentar cantidad
+        if (packItems[variationId]) {
+          packItems[variationId].quantity += 1;
+        } else {
+          packItems[variationId] = {
+            size: size,
+            title: title,
+            quantity: 1
+          };
+        }
+        clearError();
+        localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
+        renderMiniCart();
       });
     });
 
-    // ❌ Eliminar producto del pack
+    // Evento: eliminar ítem
     miniCart.addEventListener('click', function (e) {
-      if (e.target.classList.contains('remove-item')) {
-        var id = e.target.dataset.id;
+      if (e.target.closest('.remove-item')) {
+        var id = e.target.closest('.remove-item').dataset.id;
         delete packItems[id];
+        clearError();
         localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
         renderMiniCart();
       }
     });
 
-    // 🛒 Agregar pack al carrito
+    // Evento: enviar pack al servidor
     addPackBtn.addEventListener('click', function () {
-      if (Object.keys(packItems).length === 0) return;
+      var _this2 = this;
+      var totalQty = Object.values(packItems).reduce(function (acc, item) {
+        return acc + item.quantity;
+      }, 0);
+      if (totalQty < 2) {
+        showError('Debe seleccionar al menos 2 productos para el pack.');
+        return;
+      }
+      if (totalQty > 6) {
+        showError('Máximo 6 productos permitidos en el pack.');
+        return;
+      }
+
+      // Calcular precio fijo según cantidad
+      var packTotal = packPrices[totalQty];
+      if (!packTotal) {
+        showError('Error: Precio para esta cantidad no definido.');
+        return;
+      }
+      clearError();
       var formData = new FormData();
       formData.append('action', 'create_dynamic_pack');
       formData.append('pack_items', JSON.stringify(packItems));
-      (0,_helpers_ajax__WEBPACK_IMPORTED_MODULE_0__["default"])({
-        url: jsVars.ajax_url,
+      formData.append('pack_total', packTotal);
+      this.classList.add('loading');
+      fetch(jsVars.ajax_url, {
         method: 'POST',
-        params: formData,
-        async: true,
-        done: function done(response) {
-          if (response.success) {
-            // ✅ Limpiar mini-pack
-            localStorage.removeItem('mosqueira_pack');
-            packItems = {};
-            renderMiniCart();
+        body: formData,
+        credentials: 'same-origin'
+      }).then(function (res) {
+        return res.json();
+      }).then(function (response) {
+        if (response.success) {
+          localStorage.removeItem('mosqueira_pack');
+          packItems = {};
+          renderMiniCart();
+          modalCart.classList.remove('cart-empty');
+          refreshCustomMiniCart();
 
-            // ✅ Redirigir al carrito (descomentarlo si deseas redireccionar)
-            // location.href = '/cart/';
-          } else {
-            var _response$data11;
-            alert('Error al agregar el pack: ' + (((_response$data11 = response.data) === null || _response$data11 === void 0 ? void 0 : _response$data11.message) || ''));
+          // Actualizar contador de carrito si existe
+          if (typeof countCart !== 'undefined' && countCart) {
+            countCart.innerHTML = response.data.total_items;
+            countCart.classList.remove('hidden');
           }
-        },
-        error: function error(status) {
-          alert('Error al procesar la solicitud: ' + status);
-        },
-        always: function always() {
-          //console.log('Solicitud AJAX finalizada');
+          _this2.classList.remove('loading');
+        } else {
+          var _response$data12;
+          showError(((_response$data12 = response.data) === null || _response$data12 === void 0 ? void 0 : _response$data12.message) || 'Error desconocido al agregar pack.');
+          _this2.classList.remove('loading');
         }
+      })["catch"](function (error) {
+        showError('Error al enviar el pack: ' + error.message);
+        _this2.classList.remove('loading');
       });
     });
 
-    // 🧹 Botón opcional para vaciar pack
-    var clearBtn = document.createElement('button');
-    clearBtn.textContent = 'Vaciar Pack';
-    clearBtn.id = 'clear-pack';
-    clearBtn.style.marginTop = '10px';
-    clearBtn.addEventListener('click', function () {
-      packItems = {};
-      localStorage.removeItem('mosqueira_pack');
-      renderMiniCart();
-    });
-    miniCart.parentNode.appendChild(clearBtn);
-
-    // ▶️ Iniciar
+    // Renderizar mini carrito con productos y total
     renderMiniCart();
   }
+
+  // Función para renderizar el mini carrito del pack
+  function renderMiniCart() {
+    miniCart.innerHTML = '';
+    var totalItems = 0;
+    Object.keys(packItems).forEach(function (variationId) {
+      var item = packItems[variationId];
+      totalItems += item.quantity;
+      var div = document.createElement('div');
+      div.className = 'mini-cart-item';
+      var unitText = item.quantity === 1 ? "".concat(item.quantity, " unidad") : "".concat(item.quantity, " unidades");
+      div.innerHTML = "\n            <strong>".concat(item.title, "</strong> - Talla: ").concat(item.size.toUpperCase(), " - (").concat(unitText, ")\n            <button data-id=\"").concat(variationId, "\" class=\"remove-item\" title=\"Eliminar producto\">\n                <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\">\n                    <path d=\"M7 7H5V13H7V7Z\" fill=\"black\"></path>\n                    <path d=\"M11 7H9V13H11V7Z\" fill=\"black\"></path>\n                    <path d=\"M12 1C12 0.4 11.6 0 11 0H5C4.4 0 4 0.4 4 1V3H0V5H1V15C1 15.6 1.4 16 2 16H14C14.6 16 15 15.6 15 15V5H16V3H12V1ZM6 2H10V3H6V2ZM13 5V14H3V5H13Z\" fill=\"black\"></path>\n                </svg>\n            </button>\n        ");
+      miniCart.appendChild(div);
+    });
+
+    // Mostrar mensaje si no hay productos
+    if (totalItems === 0) {
+      miniCart.innerHTML = '<div><small>No hay productos en el pack.</small></div>';
+    }
+
+    // Mostrar o esconder botón agregar pack según cantidad mínima
+    addPackBtn.style.display = totalItems >= 2 ? 'inline-block' : 'none';
+
+    // Mostrar el precio fijo según total seleccionado
+    if (totalItems >= 2 && totalItems <= 6) {
+      var price = packPrices[totalItems];
+      var priceHtml = "<div class=\"pack-total-price\" style=\"margin-top:10px; font-weight:bold;\">Precio pack: S/ ".concat(price.toFixed(2), "</div>");
+      if (!miniCart.querySelector('.pack-total-price')) {
+        miniCart.insertAdjacentHTML('beforeend', priceHtml);
+      } else {
+        miniCart.querySelector('.pack-total-price').textContent = "Precio pack: S/ ".concat(price.toFixed(2));
+      }
+    } else {
+      // Eliminar precio si cantidad fuera de rango
+      var existingPrice = miniCart.querySelector('.pack-total-price');
+      if (existingPrice) existingPrice.remove();
+    }
+  }
+
+  // Función para mostrar mensajes de error en el mini carrito
+  function showError(message) {
+    if (!miniCart.contains(errorMsgDiv)) {
+      miniCart.appendChild(errorMsgDiv);
+    }
+    errorMsgDiv.textContent = message;
+  }
+
+  // Función para limpiar mensajes de error
+  function clearError() {
+    if (miniCart.contains(errorMsgDiv)) {
+      errorMsgDiv.textContent = '';
+      miniCart.removeChild(errorMsgDiv);
+    }
+  }
+
+  // Función para refrescar el mini carrito WooCommerce sin recargar la página
+  function refreshCustomMiniCart() {
+    fetch(jsVars.ajax_url + '?action=get_custom_mini_cart', {
+      method: 'GET',
+      credentials: 'same-origin'
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.success && data.data.html) {
+        var cartContainer = document.querySelector('.mos__cart_temp');
+        var mosCcart = document.querySelector('.mos__modal__content_ajax');
+        if (cartContainer || mosCcart) {
+          if (cartContainer) {
+            cartContainer.innerHTML = data.data.html;
+          } else if (mosCcart) {
+            mosCcart.innerHTML = data.data.html;
+          }
+          modalCart.classList.add('active');
+        }
+      }
+    })["catch"](function () {
+      // Error silenciado intencionalmente
+    });
+  }
+  /****************************END PACKS******************************* */
 });
 
 /***/ }),

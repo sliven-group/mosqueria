@@ -118,7 +118,7 @@ $puntos = get_user_meta($user_id, 'mosqueira_puntos', true);
 							</div>
 							<br>
 							
-							<div class="cart-desc">		
+							<div class="cart-desc <?php if(WC()->cart->get_fees()) : ?> cart-desc-fees 	<?php endif; ?>">		
 								<?php if ( WC()->cart->has_discount() ) : ?>					
 									<div class="ds-flex justify-space-between">
 										<span>Descuento</span>
@@ -130,9 +130,9 @@ $puntos = get_user_meta($user_id, 'mosqueira_puntos', true);
 							
 							<?php if(WC()->cart->get_fees()) : ?>
 								<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
-									<div class="ds-flex justify-space-between">
+									<div class="ds-flex justify-space-between cart-fees ">
 										<span><?php echo esc_html( $fee->name ); ?></span>
-										<span><?php wc_cart_totals_fee_html( $fee ); ?></span>
+										<span class="cart-fees-price"><?php wc_cart_totals_fee_html( $fee ); ?></span>
 									</div>
 								<?php endforeach; ?>
 								<br>

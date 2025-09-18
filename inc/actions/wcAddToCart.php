@@ -144,21 +144,35 @@ function delete_product_to_cart_callback() {
         wp_send_json_error('Ocurrió un error al eliminar el producto', 404);
     }
 
+    // No uses remove_all_fees(); si quieres limpiar fees, usa reset_fees()
+    if (method_exists(WC()->cart->fees_api(), 'reset_fees')) {
+        WC()->cart->fees_api()->reset_fees(); // Solo si está disponible
+    }
+
+    // Recalcular totales
+    WC()->cart->calculate_totals();
+
     // Refrescar el carrito mini para el frontend
     ob_start();
     woocommerce_mini_cart();
     $mini_cart = ob_get_clean();
 
-    $discount_total_value = WC()->cart->get_discount_total();
-    $has_discount = $discount_total_value > 0;
+    $fees_total = 0;
+    foreach (WC()->cart->get_fees() as $fee) {
+        if ($fee->amount < 0) {
+            $fees_total += abs($fee->amount);
+        }
+    }
+
+    $has_discount = $fees_total > 0;
 
     wp_send_json_success([
         'message' => 'Producto eliminado del carrito',
         'cart_count' => WC()->cart->get_cart_contents_count(),
         'mini_cart'  => $mini_cart,
         'subtotal' => wc_price(WC()->cart->get_subtotal()),
-        'discount_total' => wc_price($discount_total_value),
-        'has_discount' => $has_discount, // Aquí indicas si hay descuento activo
+        'discount_total' => wc_price($fees_total),
+        'has_discount' => $has_discount,
         'total' => WC()->cart->get_total(),
         'carrito' => WC()->cart->is_empty()
     ]);
@@ -167,33 +181,56 @@ function delete_product_to_cart_callback() {
 }
 
 
+
 function set_cart_item_quantity() {
-	$key = sanitize_text_field($_POST['key']);
-	$quantity = sanitize_text_field($_POST['quantity']);
-	$set_quantity = wc()->cart->set_quantity($key, $quantity);
+    $key = sanitize_text_field($_POST['key']);
+    $quantity = intval($_POST['quantity']); // Asegura que sea número entero
 
-	if (!$set_quantity) {
-		wp_send_json_error([
-			'message' => __('Error occurred while updating product in cart', 'mos'),
-		]);
+    $set_quantity = WC()->cart->set_quantity($key, $quantity);
 
-		wp_die();
-	}
+    if (!$set_quantity) {
+        wp_send_json_error([
+            'message' => __('Ocurrió un error al actualizar la cantidad del producto', 'mos'),
+        ]);
 
-	ob_start();
-	woocommerce_mini_cart();
-	$mini_cart = ob_get_clean();
+        wp_die();
+    }
 
-	wp_send_json_success([
-		'message' => 'Cantidad de producto agregado',
-		'cart_count' => WC()->cart->get_cart_contents_count(),
-		'mini_cart'  => $mini_cart,
-		'subtotal' => wc_price(WC()->cart->get_subtotal()),
-		'total' => wc_price(WC()->cart->get_subtotal()),
-	]);
+    // (Opcional) Limpiar fees anteriores si los estás usando
+    if (method_exists(WC()->cart->fees_api(), 'reset_fees')) {
+        WC()->cart->fees_api()->reset_fees();
+    }
 
-	wp_die();
+    // Recalcular totales para actualizar descuentos, fees, etc.
+    WC()->cart->calculate_totals();
+
+    ob_start();
+    woocommerce_mini_cart();
+    $mini_cart = ob_get_clean();
+
+    // Calcular descuentos si usas fees negativos
+    $fees_total = 0;
+    foreach (WC()->cart->get_fees() as $fee) {
+        if ($fee->amount < 0) {
+            $fees_total += abs($fee->amount);
+        }
+    }
+
+    $has_discount = $fees_total > 0;
+
+    wp_send_json_success([
+        'message' => 'Cantidad actualizada',
+        'cart_count' => WC()->cart->get_cart_contents_count(),
+        'mini_cart' => $mini_cart,
+        'subtotal' => wc_price(WC()->cart->get_subtotal()),
+        'discount_total' => wc_price($fees_total),
+        'has_discount' => $has_discount,
+        'total' => WC()->cart->get_total(), // total real, con descuentos
+    ]);
+
+    wp_die();
 }
+
 
 // function apply_coupon_ajax() {
 // 	if ( null === WC()->cart ) {
@@ -247,13 +284,12 @@ function apply_coupon_ajax() {
 	$coupons_list = [];
 
 	// 1. Validar si hay productos en oferta
-	foreach ( WC()->cart->get_cart() as $cart_item ) {
-		$product = $cart_item['data'];
-		if ( $product->is_on_sale() ) {
-			wp_send_json_error('No se pueden aplicar cupones cuando hay productos en oferta.');
-		}
-	}
-
+	//foreach ( WC()->cart->get_cart() as $cart_item ) {
+	//	$product = $cart_item['data'];
+	//	if ( $product->is_on_sale() ) {
+	//		wp_send_json_error('No se pueden aplicar cupones cuando hay productos en oferta.');
+	//	}
+	//}
 	// 2. Validar si el cupón ya fue aplicado
 	$applied = WC()->cart->get_applied_coupons();
 	if ( in_array( strtolower($coupon_code), array_map('strtolower', $applied) ) ) {

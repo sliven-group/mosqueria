@@ -80,8 +80,9 @@ $puntos = get_user_meta($user_id, 'mosqueira_puntos', true);
 	<br>
 	<?php if($user_id) :
 		$is_first_purchase = mosqueira_es_primera_compra($user_id);
+		$primer_pedido_como_invitado = get_user_meta($user_id, 'primer_pedido_como_invitado', true);
 	?>
-		<?php if(!$is_first_purchase && ($categoria!="Access" && $categoria!="" ) ) : ?>
+		<?php if(!$is_first_purchase && ($categoria!="Access" && $categoria!="")  && $primer_pedido_como_invitado !="1" ) : ?>
 			<div class="form-input mb-30">
 				<div class="ds-flex align-end form-input-desc">
 					<input id="promo_code" type="text" placeholder="Añadir código promocional" value="">

@@ -14,7 +14,7 @@ $user_id       = get_current_user_id();
 
 <?php if ( ! $cart->is_empty() ) : ?>
     <div class="mos__cart">
-        <ul class="mos__cart__items">
+        <ul class="mos__cart__items ">
             <?php foreach ( $items as $cart_item_key => $cart_item ) : ?>
                 <?php
                     $pathItem = get_stylesheet_directory() . '/partials/cart/item.php';
@@ -37,34 +37,27 @@ $user_id       = get_current_user_id();
                     $categoria = get_user_meta($user_id, 'mosqueira_categoria', true);
                     $primer_pedido_como_invitado = get_user_meta($user_id, 'primer_pedido_como_invitado', true);
 
-                    // Calcular subtotal solo para productos sin oferta
+                    // Calcular subtotal solo para productos normales (sin pack y sin oferta)
                     $subtotal_precio_normal = 0;
+                    $has_normal_product = false;
+
                     foreach ( $items as $cart_item ) {
                         $product = $cart_item['data'];
+                        $is_pack = get_post_meta( $product->get_id(), '_is_custom_pack', true );
                         $precio_regular = floatval($product->get_regular_price());
                         $precio_actual = floatval($product->get_price());
 
-                        if ($precio_actual >= $precio_regular) {
+                        if ( ! $is_pack && $precio_actual >= $precio_regular ) {
                             $subtotal_precio_normal += $precio_actual * $cart_item['quantity'];
+                            $has_normal_product = true;
                         }
                     }
 
-                    // Verificar si hay productos en oferta en el carrito
-                    $has_sale_products = false;
-                    foreach ( $items as $cart_item ) {
-                        $product = $cart_item['data'];
-                        if ( $product->is_on_sale() ) {
-                            $has_sale_products = true;
-                            break;
-                        }
-                    }
-                ?>
-
-                    <?php if ( (($is_first_purchase && !$has_sale_products) || ($primer_pedido_como_invitado =="1")) && $subtotal_precio_normal > 0 ) :
+                    // Aplicar 15% solo si existe al menos un producto normal con subtotal > 0 y es primera compra o primer pedido como invitado
+                    if ( (($is_first_purchase) || ($primer_pedido_como_invitado == "1")) && $has_normal_product && $subtotal_precio_normal > 0 ) :
                         $descuento = $subtotal_precio_normal * 0.15;
-                        // Nuevo total: subtotal general menos el descuento aplicado solo sobre productos sin oferta
                         $total_con_descuento = $subtotal - $descuento;
-                    ?>
+                ?>
                         <li class="ds-flex align-center justify-space-between">
                             <span>15% de descuento - Primera compra (<?php echo esc_html($categoria); ?>)</span>
                             <span>-<?php echo wc_price($descuento); ?></span>
@@ -120,5 +113,5 @@ $user_id       = get_current_user_id();
         </div>
     </div>
 <?php else : ?>
-    <p>Su bolsa de compras está vacía</p>
+    <div class="mos__cart_temp"><p>Su bolsa de compras está vacía</p></div>
 <?php endif; ?>

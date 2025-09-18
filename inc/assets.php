@@ -58,6 +58,7 @@ function theme_enqueue_scripts() {
 		array(
 			'baseUrl' => get_bloginfo( 'url' ),
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'wc_fragments_url' => home_url('/?wc-ajax=get_refreshed_fragments'), // para actualizar fragmentos del carrito
 			'nonce' => wp_create_nonce('ws-nonce'),
 			'theme_root' => THEME_ROOT,
 			'is_cart' => is_cart(),

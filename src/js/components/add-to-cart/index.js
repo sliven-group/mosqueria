@@ -17,6 +17,7 @@ window.addEventListener('load', function () {
 	const modalCombine = document.getElementById('mos-modal-combine');
 	const datacuponcustomServer = document.querySelectorAll('.data-cupon-custom-server');
 	const datacuponcustomTemp = document.querySelectorAll('.data-cupon-custom-temp');
+	const cartFeesPriceQuantity = document.querySelector('.cart-fees-price');
 
 	if (datacuponcustomServer.length > 0) {
 		datacuponcustomTemp.forEach(element => {
@@ -40,7 +41,7 @@ window.addEventListener('load', function () {
 			params: formData,
 			async: true,
 			done: function (response) {
-				//console.log(response);
+				
 				if (response.success) {
 					if (resultCart) {
 						resultCart.innerHTML = response?.data?.mini_cart;
@@ -53,6 +54,9 @@ window.addEventListener('load', function () {
 					}
 					if (total) {
 						total.innerHTML = response?.data?.total;
+					}
+					if(cartFeesPriceQuantity){
+						cartFeesPriceQuantity.innerHTML = '-'+response?.data?.discount_total;
 					}
 				}
 			},
@@ -404,7 +408,6 @@ window.addEventListener('load', function () {
 			params: formData,
 			async: true,
 			done: function (response) {
-				
 				if (response.success) {
 					// Actualizar mini carrito y contador
 					resultCart.innerHTML = response.data.mini_cart;
@@ -418,8 +421,11 @@ window.addEventListener('load', function () {
 					}
 
 					const discount = document.querySelector('.cart-desc');
+					const discountFees = document.querySelector('.cart-desc-fees');
+					//const cartFees = document.querySelector('.cart-fees');
+					const cartFeesPrice = document.querySelector('.cart-fees-price');								
 
-					if (discount && response.data.discount_total && response.data.has_discount==true ) {
+					if (discount && response.data.discount_total && response.data.has_discount==true && !discountFees ) {
 						discount.innerHTML = `
 							<div class="ds-flex justify-space-between">
 							<span>Descuento</span>
@@ -429,6 +435,10 @@ window.addEventListener('load', function () {
 							</div>
 							<br>
 						`;
+					}
+
+					if(cartFeesPrice){
+						cartFeesPrice.innerHTML = '-'+response.data.discount_total;
 					}
 					
 					const popCartDesc = document.querySelector('.pop-cart-desc');
@@ -482,143 +492,256 @@ window.addEventListener('load', function () {
 		});
 	});
 
-
 	on(document, 'click', '.modal__cart__close', function () {
 		modalCart.classList.remove('active');
 		body.classList.remove('no-scroll');
 	});
 
-	//***********************************PACK
+
+	//***********************************PACK*****************************************
+
+	// Tabla de precios fijos por cantidad total de productos en el pack
+	const packPrices = {
+		2: 180.00,
+		3: 255.00,
+		4: 320.00,
+		5: 390.00,
+		6: 450.00
+	};
+
 	let packItems = {};
 	const miniCart = document.getElementById('mini-pack-cart');
 	const addPackBtn = document.getElementById('add-pack-to-cart');
+	const errorMsgDiv = document.createElement('div');
 
-	if (miniCart) {
-		// 🔁 Cargar datos guardados
-		const savedPack = localStorage.getItem('mosqueira_pack');
+	errorMsgDiv.className = 'pack-error-message';
+	errorMsgDiv.style.color = 'red';
+	errorMsgDiv.style.marginTop = '10px';
 
-		if (savedPack) {
-			try {
-				packItems = JSON.parse(savedPack);
-			} catch (e) {
-				//console.error('Error al recuperar pack guardado:', e);
-			}
-		}
+// Cargar pack guardado en localStorage si existe
+if (addPackBtn) {
+    const savedPack = localStorage.getItem('mosqueira_pack');
 
-		// 🧩 Render mini-carrito
-		function renderMiniCart() {
-			miniCart.innerHTML = '';
-			let totalItems = 0;
+    if (savedPack) {
+        try {
+            packItems = JSON.parse(savedPack);
+        } catch (e) {
+            //console.error('Error al parsear pack del localStorage:', e);
+        }
+    }
 
-			Object.keys(packItems).forEach(variationId => {
-				const item = packItems[variationId];
+    // Evento: seleccionar talla
+    document.querySelectorAll('.size-option.in-stock').forEach(option => {
+        option.addEventListener('click', () => {
+            const variationId = option.dataset.id;
+            const size = option.dataset.talla;
+            const title = option.closest('.product-card').querySelector('h2').innerText;
 
-				totalItems += item.quantity;
+            // Sumar cantidad total actual + 1 para validar límite
+            let totalQty = 0;
 
-				const div = document.createElement('div');
+            Object.values(packItems).forEach(item => totalQty += item.quantity);
 
-				div.className = 'mini-cart-item';
-				div.innerHTML = `
-					<strong>${item.title}</strong> - Talla: ${item.size} (x${item.quantity})
-					<button data-id="${variationId}" class="remove-item">x</button>
-				`;
-				miniCart.appendChild(div);
-			});
+            if (totalQty >= 6) {
+                showError('Máximo 6 productos en el pack.');
 
-			if (totalItems === 0) {
-				miniCart.innerHTML = '<p>No hay productos en el pack.</p>';
-				addPackBtn.style.display = 'none';
-			} else {
-				addPackBtn.style.display = 'inline-block';
-			}
-		}
+                return;
+            }
 
-		// ➕ Agregar talla al pack
-		document.querySelectorAll('.size-selector').forEach(ul => {
-			ul.addEventListener('click', function (e) {
-				if (e.target.classList.contains('size-option') && e.target.classList.contains('in-stock')) {
-					const variationId = e.target.dataset.variationId;
-					const size = e.target.dataset.size;
-					const title = ul.dataset.productTitle;
+            // Agregar o aumentar cantidad
+            if (packItems[variationId]) {
+                packItems[variationId].quantity += 1;
+            } else {
+                packItems[variationId] = { size, title, quantity: 1 };
+            }
 
-					if (packItems[variationId]) {
-						packItems[variationId].quantity += 1;
-					} else {
-						packItems[variationId] = { size, title, quantity: 1 };
-					}
+            clearError();
+            localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
+            renderMiniCart();
+        });
+    });
 
-					// 💾 Guardar
-					localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
-					renderMiniCart();
-				}
-			});
-		});
+    // Evento: eliminar ítem
+    miniCart.addEventListener('click', function (e) {
+        if (e.target.closest('.remove-item')) {
+            const id = e.target.closest('.remove-item').dataset.id;
 
-		// ❌ Eliminar producto del pack
-		miniCart.addEventListener('click', function (e) {
-			if (e.target.classList.contains('remove-item')) {
-				const id = e.target.dataset.id;
+            delete packItems[id];
+            clearError();
+            localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
+            renderMiniCart();
+        }
+    });
 
-				delete packItems[id];
-				localStorage.setItem('mosqueira_pack', JSON.stringify(packItems));
-				renderMiniCart();
-			}
-		});
+    // Evento: enviar pack al servidor
+    addPackBtn.addEventListener('click', function () {
+        const totalQty = Object.values(packItems).reduce((acc, item) => acc + item.quantity, 0);
 
-		// 🛒 Agregar pack al carrito
-		addPackBtn.addEventListener('click', function () {
-			if (Object.keys(packItems).length === 0) return;
+        if (totalQty < 2) {
+            showError('Debe seleccionar al menos 2 productos para el pack.');
 
-			const formData = new FormData();
+            return;
+        }
 
-			formData.append('action', 'create_dynamic_pack');
-			formData.append('pack_items', JSON.stringify(packItems));
+        if (totalQty > 6) {
+            showError('Máximo 6 productos permitidos en el pack.');
 
-			ajax({
-				url: jsVars.ajax_url,
-				method: 'POST',
-				params: formData,
-				async: true,
-				done: function (response) {
-					if (response.success) {
-						// ✅ Limpiar mini-pack
-						localStorage.removeItem('mosqueira_pack');
-						packItems = {};
-						renderMiniCart();
+            return;
+        }
 
-						// ✅ Redirigir al carrito (descomentarlo si deseas redireccionar)
-						// location.href = '/cart/';
-					} else {
-						alert('Error al agregar el pack: ' + (response.data?.message || ''));
-					}
-				},
-				error: function (status) {
-					alert('Error al procesar la solicitud: ' + status);
-				},
-				always: function () {
-					//console.log('Solicitud AJAX finalizada');
-				}
-			});
-		});
+        // Calcular precio fijo según cantidad
+        const packTotal = packPrices[totalQty];
 
-		// 🧹 Botón opcional para vaciar pack
-		const clearBtn = document.createElement('button');
+        if (!packTotal) {
+            showError('Error: Precio para esta cantidad no definido.');
 
-		clearBtn.textContent = 'Vaciar Pack';
-		clearBtn.id = 'clear-pack';
-		clearBtn.style.marginTop = '10px';
-		clearBtn.addEventListener('click', () => {
-			packItems = {};
-			localStorage.removeItem('mosqueira_pack');
-			renderMiniCart();
-		});
-		miniCart.parentNode.appendChild(clearBtn);
+            return;
+        }
 
-		// ▶️ Iniciar
-		renderMiniCart();
-	}
+        clearError();
 
+        const formData = new FormData();
 
+        formData.append('action', 'create_dynamic_pack');
+        formData.append('pack_items', JSON.stringify(packItems));
+        formData.append('pack_total', packTotal);
 
+        this.classList.add('loading');
+
+        fetch(jsVars.ajax_url, {
+            method: 'POST',
+            body: formData,
+            credentials: 'same-origin'
+        })
+        .then(res => res.json())
+        .then(response => {
+            if (response.success) {
+                localStorage.removeItem('mosqueira_pack');
+                packItems = {};
+                renderMiniCart();
+                modalCart.classList.remove('cart-empty');
+                refreshCustomMiniCart();
+
+                // Actualizar contador de carrito si existe
+                if (typeof countCart !== 'undefined' && countCart) {
+                    countCart.innerHTML = response.data.total_items;
+                    countCart.classList.remove('hidden');
+                }
+
+                this.classList.remove('loading');
+            } else {
+                showError(response.data?.message || 'Error desconocido al agregar pack.');
+                this.classList.remove('loading');
+            }
+        })
+        .catch(error => {
+            showError('Error al enviar el pack: ' + error.message);
+            this.classList.remove('loading');
+        });
+    });
+
+    // Renderizar mini carrito con productos y total
+    renderMiniCart();
+}
+
+// Función para renderizar el mini carrito del pack
+function renderMiniCart() {
+    miniCart.innerHTML = '';
+    let totalItems = 0;
+
+    Object.keys(packItems).forEach(variationId => {
+        const item = packItems[variationId];
+
+        totalItems += item.quantity;
+
+        const div = document.createElement('div');
+
+        div.className = 'mini-cart-item';
+
+        const unitText = item.quantity === 1 ? `${item.quantity} unidad` : `${item.quantity} unidades`;
+
+        div.innerHTML = `
+            <strong>${item.title}</strong> - Talla: ${item.size.toUpperCase()} - (${unitText})
+            <button data-id="${variationId}" class="remove-item" title="Eliminar producto">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M7 7H5V13H7V7Z" fill="black"></path>
+                    <path d="M11 7H9V13H11V7Z" fill="black"></path>
+                    <path d="M12 1C12 0.4 11.6 0 11 0H5C4.4 0 4 0.4 4 1V3H0V5H1V15C1 15.6 1.4 16 2 16H14C14.6 16 15 15.6 15 15V5H16V3H12V1ZM6 2H10V3H6V2ZM13 5V14H3V5H13Z" fill="black"></path>
+                </svg>
+            </button>
+        `;
+        miniCart.appendChild(div);
+    });
+
+    // Mostrar mensaje si no hay productos
+    if (totalItems === 0) {
+        miniCart.innerHTML = '<div><small>No hay productos en el pack.</small></div>';
+    }
+
+    // Mostrar o esconder botón agregar pack según cantidad mínima
+    addPackBtn.style.display = (totalItems >= 2) ? 'inline-block' : 'none';
+
+    // Mostrar el precio fijo según total seleccionado
+    if (totalItems >= 2 && totalItems <= 6) {
+        const price = packPrices[totalItems];
+        const priceHtml = `<div class="pack-total-price" style="margin-top:10px; font-weight:bold;">Precio pack: S/ ${price.toFixed(2)}</div>`;
+        
+		if (!miniCart.querySelector('.pack-total-price')) {
+            miniCart.insertAdjacentHTML('beforeend', priceHtml);
+        } else {
+            miniCart.querySelector('.pack-total-price').textContent = `Precio pack: S/ ${price.toFixed(2)}`;
+        }
+    } else {
+        // Eliminar precio si cantidad fuera de rango
+        const existingPrice = miniCart.querySelector('.pack-total-price');
+
+        if (existingPrice) existingPrice.remove();
+    }
+}
+
+// Función para mostrar mensajes de error en el mini carrito
+function showError(message) {
+    if (!miniCart.contains(errorMsgDiv)) {
+        miniCart.appendChild(errorMsgDiv);
+    }
+    errorMsgDiv.textContent = message;
+}
+
+// Función para limpiar mensajes de error
+function clearError() {
+    if (miniCart.contains(errorMsgDiv)) {
+        errorMsgDiv.textContent = '';
+        miniCart.removeChild(errorMsgDiv);
+    }
+}
+
+// Función para refrescar el mini carrito WooCommerce sin recargar la página
+function refreshCustomMiniCart() {
+    fetch(jsVars.ajax_url + '?action=get_custom_mini_cart', {
+        method: 'GET',
+        credentials: 'same-origin'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.data.html) {
+            const cartContainer = document.querySelector('.mos__cart_temp');
+            const mosCcart = document.querySelector('.mos__modal__content_ajax');
+
+            if (cartContainer || mosCcart) {
+                if (cartContainer) {
+                    cartContainer.innerHTML = data.data.html;
+                } else if (mosCcart) {
+                    mosCcart.innerHTML = data.data.html;
+                }
+                modalCart.classList.add('active');
+            }
+        }
+    })
+    .catch(() => {
+		// Error silenciado intencionalmente
+	});
+
+}
+	/****************************END PACKS******************************* */
 
 });

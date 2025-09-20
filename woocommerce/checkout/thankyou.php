@@ -89,29 +89,31 @@ defined( 'ABSPATH' ) || exit;
                                     <p>Cantidad: <?php echo esc_html($quantity); ?></p>
 
                                     <?php
-                                    // Mostrar productos del pack si existen
-                                    $pack_items = $item->get_meta('_custom_pack_items');
-                                    if (!empty($pack_items) && is_array($pack_items)) :
-                                        echo '<strong>Contenido del pack:</strong><ul>';
-                                        foreach ($pack_items as $variation_id => $pack_item) :
-                                            $pack_product = wc_get_product($variation_id);
-                                            if (!$pack_product) continue;
+                                        // Mostrar productos del pack si existen
+                                        $pack_items = $item->get_meta('_custom_pack_items');
+                                        if (!empty($pack_items) && is_array($pack_items)) :
+                                            echo '<strong>Contenido del pack:</strong><ul>';
+                                            foreach ($pack_items as $variation_id => $pack_item) :
+                                                $pack_product = wc_get_product($variation_id);
+                                                if (!$pack_product) continue;
 
-                                            $pack_title = isset($pack_item['title']) ? $pack_item['title'] : $pack_product->get_name();
-                                            $pack_qty = isset($pack_item['quantity']) ? intval($pack_item['quantity']) : 1;
-                                            $pack_size = isset($pack_item['size']) ? $pack_item['size'] : '';
+                                                $pack_title = isset($pack_item['title']) ? $pack_item['title'] : $pack_product->get_name();
+                                                $pack_qty = isset($pack_item['quantity']) ? intval($pack_item['quantity']) : 1;
+                                                $pack_size = isset($pack_item['size']) ? strtoupper($pack_item['size']) : ''; // ✅ Talla en mayúsculas
+                                                $unidad_text = $pack_qty === 1 ? 'unidad' : 'unidades'; // ✅ Singular/plural
 
-                                            echo '<li>';
-                                            echo esc_html($pack_title);
-                                            if ($pack_size) {
-                                                echo ' - Talla: <span class="upper">' . esc_html($pack_size) . '</span>';
-                                            }
-                                            echo ' (x' . esc_html($pack_qty) . ')';
-                                            echo '</li>';
-                                        endforeach;
-                                        echo '</ul>';
-                                    endif;
-                                    ?>
+                                                echo '<li>';
+                                                echo esc_html($pack_title);
+                                                if ($pack_size) {
+                                                    echo ' - Talla: <span class="upper">' . esc_html($pack_size) . '</span>';
+                                                }
+                                                echo ' (' . esc_html($pack_qty) . ' ' . $unidad_text . ')';
+                                                echo '</li>';
+                                            endforeach;
+                                            echo '</ul>';
+                                        endif;
+                                        ?>
+
                                 </div>
                             </div>
                         <?php endforeach; ?>

@@ -1,7 +1,6 @@
 <?php
 $cart = wc()->cart;
 $cart->calculate_totals(); // Asegura que los totales estén actualizados
-
 $items         = $cart->get_cart();
 $subtotal      = $cart->get_subtotal();
 $total         = (float) $cart->get_total('edit'); // Total sin formato

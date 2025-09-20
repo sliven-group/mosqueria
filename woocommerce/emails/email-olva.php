@@ -32,7 +32,7 @@
 		<tr>
 			<td align="center"
 				style="padding: 20px;font-family:Lato,Arial,sans-serif;font-weight:400;color:#000;text-align:center;font-size:20px;">
-				Estimado/a, <?php echo $name; ?>
+				Estimado/a <?php echo $name; ?>,
 			</td>
 		</tr>
 		<tr>
@@ -101,17 +101,7 @@
 				</table>
 			</td>
 		</tr>
-		<tr>
-            <td>
-                <table width="600" bgcolor="#F5FDE8" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                        <td>
-                            <img src="http://imgfz.com/i/OG9eRdQ.jpeg" width="600" height="1" style="vertical-align:bottom; display:block; border:none"/>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+		
 <?php
 	require_once trailingslashit(get_stylesheet_directory()) . 'woocommerce/emails/email-custom-footer.php';
 ?>

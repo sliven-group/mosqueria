@@ -121,7 +121,7 @@
 		<tr>
 			<td align="center"
 				style="padding: 20px;font-family:Lato,Arial,sans-serif;font-weight:400;color:#000;text-align:center;font-size:20px;">
-				Estimado/a, <?php echo $nombre; ?>
+				Estimado/a <?php echo $nombre; ?>,
 			</td>
 		</tr>
 		<tr>

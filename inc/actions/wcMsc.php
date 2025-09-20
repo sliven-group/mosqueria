@@ -342,7 +342,6 @@ function mosqueira_descuento_primera_compra_access($cart) {
 
     $user_id = get_current_user_id();
     if (!$user_id) return;
-
     $categoria = get_user_meta($user_id, 'mosqueira_categoria', true);
     $ya_aplicado = get_user_meta($user_id, 'mosqueira_primera_compra_descuento_usado', true);
     $primer_pedido_como_invitado = get_user_meta($user_id, 'primer_pedido_como_invitado', true);

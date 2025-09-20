@@ -5,6 +5,7 @@
 get_header();
 
 $allowed_subcategories = ['polos-y-camisetas', 'polos-y-camisetas-mujer'];
+
 $products_args = null;
 
 $filter = get_query_var('filter');

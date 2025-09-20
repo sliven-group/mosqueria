@@ -498,7 +498,7 @@ window.addEventListener('load', function () {
 	});
 
 
-	//***********************************PACK*****************************************
+	//***********************************PACK******************************************
 
 	// Tabla de precios fijos por cantidad total de productos en el pack
 	const packPrices = {
@@ -607,6 +607,8 @@ if (addPackBtn) {
         formData.append('pack_total', packTotal);
 
         this.classList.add('loading');
+		this.closest('.mini-pack-cart').classList.add('loading');
+		
 
         fetch(jsVars.ajax_url, {
             method: 'POST',
@@ -629,14 +631,17 @@ if (addPackBtn) {
                 }
 
                 this.classList.remove('loading');
+				this.closest('.mini-pack-cart').classList.remove('loading');
             } else {
                 showError(response.data?.message || 'Error desconocido al agregar pack.');
                 this.classList.remove('loading');
+				this.closest('.mini-pack-cart').classList.remove('loading');
             }
         })
         .catch(error => {
             showError('Error al enviar el pack: ' + error.message);
             this.classList.remove('loading');
+			this.closest('.mini-pack-cart').classList.remove('loading');
         });
     });
 

@@ -89,36 +89,37 @@ $product_link = get_permalink($product_id);
         <?php
         // Mostrar detalle si es un pack personalizado
         $is_custom_pack = get_post_meta( $product_id, '_is_custom_pack', true );
-
         if ( $is_custom_pack ) {
             $pack_items = get_post_meta( $product_id, '_custom_pack_items', true );
             if ( ! empty( $pack_items ) ) {
                 echo '<div class="pack-details">';
                 echo '<strong>Este pack contiene:</strong>';
                 echo '<ul class="pack-items-list" style="margin-top: 10px;">';
+
                 foreach ( $pack_items as $variation_id => $pack_item ) {
                     $variation = new WC_Product_Variation( $variation_id );
                     if ( ! $variation || ! $variation->exists() ) continue;
 
                     $item_title = $pack_item['title'] ?? 'Producto';
-                    $item_size  = $pack_item['size'] ?? '';
-                    $item_qty   = intval($pack_item['quantity'] ?? 1);
-                    $item_price = wc_price($variation->get_price());
-                    $item_img   = wp_get_attachment_image_url($variation->get_image_id(), 'thumbnail');
+                    $item_size  = strtoupper( $pack_item['size'] ?? '' ); //Talla en mayúsculas
+                    $item_qty   = intval( $pack_item['quantity'] ?? 1 );
+                    $item_price = wc_price( $variation->get_price() );
+                    $item_img   = wp_get_attachment_image_url( $variation->get_image_id(), 'thumbnail' );
+
+                    //Texto de unidad o unidades
+                    $unidad_text = $item_qty === 1 ? 'unidad' : 'unidades';
 
                     echo '<li class="pack-item" data-variation-id="' . esc_attr($variation_id) . '" style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">';
-
-					echo '<img src="' . esc_url($item_img) . '" alt="' . esc_attr($item_title) . '" width="40" height="40" style="border-radius: 4px;">';
-
-					echo '<span>' . esc_html($item_title) . ' - Talla: ' . esc_html($item_size) . ' (x' . $item_qty . ') — ' . $item_price . '</span>';
-
-					echo '</li>';
-
+                    echo '<img src="' . esc_url($item_img) . '" alt="' . esc_attr($item_title) . '" width="40" height="40" style="border-radius: 4px;">';
+                    echo '<span>' . esc_html($item_title) . ' - Talla: ' . esc_html($item_size) . ' (' . $item_qty . ' ' . $unidad_text . ') — ' . $item_price . '</span>';
+                    echo '</li>';
                 }
+
                 echo '</ul>';
                 echo '</div>';
             }
         }
+
         ?>
     </div>
 </li>

@@ -112,7 +112,7 @@
 						</div>
 					</div>
 					<div class="item-msc item-msc--img ds-flex justify-center align-center">
-						<img loading="lazy" src="<?php echo IMAGES . 'promocion-imagen.webp'; ?>" alt="promoción">
+						<img loading="lazy" src="<?//php echo IMAGES . 'promocion-imagen.webp'; ?>" alt="promoción">
 					</div>
 					<div class="item-msc item-msc--2 ds-flex justify-center align-center">
 						<div>
@@ -125,7 +125,7 @@
 			</div> -->
 
 			<div class="mos__msc__ben">
-				<h3 class="mt-50">Beneficios Mensuales</h3>
+				<h3 class="mt-50">Beneficios Mensuales.</h3>
 				<div class="ds-grid ds-grid__gap10 ds-grid__col2 mt-30">
 					<div class="item-msc item-msc--img ds-flex justify-center align-center">
 						<a href="https://api.whatsapp.com/send/?phone=%2B51908900915&text=Hola%2C%20deseo%20sumar%20los%20puntos%20de%20mi%20compra%20por%20WhatsApp%20a%20mi%20cuenta%20de%20Mosqueira%20Social%20Club&type=phone_number&app_absent=0" target="_blank">
@@ -139,7 +139,7 @@
 					</div>
 				</div>
 			</div>
-
+			
 		<?php endif; ?>
 		<?php if($historial) : ?>
 			<div class="mos__msc__history">

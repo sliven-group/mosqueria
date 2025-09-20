@@ -190,66 +190,69 @@
 							</div>
 							<div class="item-big ds-flex align-start justify-space-between">
 								<div>
-								<?php foreach ($items as $item_id => $item) :
-									/** @var WC_Order_Item_Product $item */
-									$product = $item->get_product();
-									$pack_items = $item->get_meta('_custom_pack_items', true);
-								?>
-									<div class="item-big__element ds-flex align-start justify-space-between">
-										<?php if (!empty($pack_items) && is_array($pack_items)) : 
-											// Mostrar pack personalizado ?>
-											<div class="pack-items">
-												<h4><?php echo esc_html($product ? $product->get_name() : 'Pack personalizado'); ?></h4>
-												<ul>
-													<?php foreach ($pack_items as $variation_id => $pack_item_data) :
-														$pack_product = wc_get_product($variation_id);
-														if (!$pack_product) continue;
-														$image = wp_get_attachment_image_url($pack_product->get_image_id(), 'thumbnail');
-														$title = isset($pack_item_data['title']) ? $pack_item_data['title'] : $pack_product->get_name();
-														$quantity = isset($pack_item_data['quantity']) ? intval($pack_item_data['quantity']) : 1;
-														$size = isset($pack_item_data['size']) ? $pack_item_data['size'] : '';
-													?>
-														<li class="ds-flex align-center" style="margin-bottom:8px;">
-															<?php if ($image) : ?>
-																<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" style="max-width:60px; margin-right:10px;">
+							<?php foreach ($items as $item_id => $item) :
+								/** @var WC_Order_Item_Product $item */
+								$product = $item->get_product();
+								$pack_items = $item->get_meta('_custom_pack_items', true);
+							?>
+								<div class="item-big__element ds-flex align-start justify-space-between">
+									<?php if (!empty($pack_items) && is_array($pack_items)) : 
+										// Mostrar pack personalizado ?>
+										<div class="pack-items">
+											<h4><?php echo esc_html($product ? $product->get_name() : 'Pack personalizado'); ?></h4>
+											<ul>
+												<?php foreach ($pack_items as $variation_id => $pack_item_data) :
+													$pack_product = wc_get_product($variation_id);
+													if (!$pack_product) continue;
+													$image = wp_get_attachment_image_url($pack_product->get_image_id(), 'thumbnail');
+													$title = isset($pack_item_data['title']) ? $pack_item_data['title'] : $pack_product->get_name();
+													$quantity = isset($pack_item_data['quantity']) ? intval($pack_item_data['quantity']) : 1;
+													$size = isset($pack_item_data['size']) ? strtoupper($pack_item_data['size']) : '';
+													$unidad_text = $quantity === 1 ? 'unidad' : 'unidades';
+												?>
+													<li class="ds-flex align-center" style="margin-bottom:8px;">
+														<?php if ($image) : ?>
+															<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" style="max-width:60px; margin-right:10px;">
+														<?php endif; ?>
+														<span>
+															<?php echo esc_html($title); ?>
+															<?php if ($size) : ?>
+																- Talla: <strong><?php echo esc_html($size); ?></strong>
 															<?php endif; ?>
-															<span>
-																<?php echo esc_html($title); ?>
-																<?php if ($size) : ?>
-																	- Talla: <strong><?php echo esc_html($size); ?></strong>
-																<?php endif; ?>
-																(x<?php echo $quantity; ?>)
-															</span>
-														</li>
-													<?php endforeach; ?>
-												</ul>
-											</div>
-										<?php elseif ($product) : 
-											// Producto normal ?>
-											<?php
-												$product_name = $product->get_name();
-												$product_price = wc_price($product->get_price());
-												$quantity = $item->get_quantity();
-												$product_image = $product->get_image('thumbnail');
-												$attributes = $product->get_attributes();
-												$talla = isset($attributes['pa_talla']) ? $attributes['pa_talla'] : '';
-												$color = $item->get_meta( 'Color' );
-											?>
-											<?php echo $product_image; ?>
-											<div class="info">
-												<h4><?php echo esc_html($product_name); ?></h4>
-												<p><?php echo $product_price; ?></p>
-												<p>Cantidad: <?php echo esc_html($quantity); ?></p>
-												<?php if(!empty($talla)) : ?>
-													<p>Talla: <span class="upper"><?php echo esc_html($talla); ?></span></p>
-												<?php endif; ?>
-												<?php if(!empty($color)) : ?>
-													<p>Color: <?php echo esc_html($color); ?></p>
-												<?php endif; ?>
-											</div>
-										<?php endif; ?>
-									</div>
-								<?php endforeach; ?>
+															(<?php echo $quantity . ' ' . $unidad_text; ?>)
+														</span>
+													</li>
+												<?php endforeach; ?>
+											</ul>
+										</div>
+									<?php elseif ($product) : 
+										// Producto normal ?>
+										<?php
+											$product_name = $product->get_name();
+											$product_price = wc_price($product->get_price());
+											$quantity = $item->get_quantity();
+											$product_image = $product->get_image('thumbnail');
+											$attributes = $product->get_attributes();
+											$talla = isset($attributes['pa_talla']) ? strtoupper($attributes['pa_talla']) : '';
+											$color = $item->get_meta('Color');
+											$unidad_text = $quantity === 1 ? 'unidad' : 'unidades';
+										?>
+										<?php echo $product_image; ?>
+										<div class="info">
+											<h4><?php echo esc_html($product_name); ?></h4>
+											<p><?php echo $product_price; ?></p>
+											<p><?php echo $quantity . ' ' . $unidad_text; ?></p>
+											<?php if (!empty($talla)) : ?>
+												<p>Talla: <span class="upper"><?php echo esc_html($talla); ?></span></p>
+											<?php endif; ?>
+											<?php if (!empty($color)) : ?>
+												<p>Color: <?php echo esc_html($color); ?></p>
+											<?php endif; ?>
+										</div>
+									<?php endif; ?>
+								</div>
+							<?php endforeach; ?>
+
 								</div>
 								<a href="<?php echo home_url('mi-cuenta/pedidos/?pedido-id=') . esc_attr($id); ?>" class="mos__btn mos__btn--primary">VER DETALLES DEL PEDIDO</a>
 							</div>

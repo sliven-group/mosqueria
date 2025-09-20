@@ -638,10 +638,29 @@ function mosqueira_create_dynamic_pack() {
     $pack_product->set_virtual(false);
     $pack_product->set_sold_individually(true);
 
-    // Crear collage de imágenes
-    $thumbnail_id = mosqueira_create_pack_collage($image_urls);
-    if ($thumbnail_id) {
-        $pack_product->set_image_id($thumbnail_id);
+    // Usar imagen del primer producto del pack como imagen destacada
+    reset($pack_items);
+    $first_variation_id = key($pack_items);
+
+    if ($first_variation_id) {
+        $first_variation = new WC_Product_Variation($first_variation_id);
+        
+        if ($first_variation && $first_variation->exists()) {
+            $image_id = $first_variation->get_image_id();
+
+            if (!$image_id) {
+                $parent_id = $first_variation->get_parent_id();
+                $parent_product = wc_get_product($parent_id);
+
+                if ($parent_product) {
+                    $image_id = $parent_product->get_image_id();
+                }
+            }
+
+            if ($image_id) {
+                $pack_product->set_image_id($image_id);
+            }
+        }
     }
 
     $pack_product->save();
@@ -652,6 +671,8 @@ function mosqueira_create_dynamic_pack() {
     update_post_meta($pack_product_id, '_custom_pack_items', $pack_items);
     update_post_meta($pack_product_id, '_custom_pack_images', $image_urls);
     update_post_meta($pack_product_id, '_visibility', 'hidden');
+
+    // Aquí ya no archivas packs antiguos
 
     // Asegurar carrito disponible
     if (WC()->cart === null) {
@@ -674,6 +695,8 @@ function mosqueira_create_dynamic_pack() {
     ]);
 }
 
+
+
 //AQUI SE AÑADE AL CART
 add_action('wp_ajax_get_custom_mini_cart', 'get_custom_mini_cart_callback');
 add_action('wp_ajax_nopriv_get_custom_mini_cart', 'get_custom_mini_cart_callback');
@@ -687,7 +710,6 @@ function get_custom_mini_cart_callback() {
     ]);
 }
 //END AQUI SE AÑADE AL CART
-
 
 add_action('woocommerce_checkout_create_order_line_item', function($item, $cart_item_key, $values, $order) {
     if (isset($values['_custom_pack_items'])) {
@@ -808,59 +830,6 @@ function mosqueira_agregar_clase_pack_a_fila_admin( $class, $item ) {
 }
 
 
-//NO MUESTRA PACK REST API POST TYPE PRODUCT
-add_filter('rest_product_query', function($args, $request) {
-    if (!isset($args['meta_query']) || !is_array($args['meta_query'])) {
-        $args['meta_query'] = [];
-    }
-    // Excluir productos con _is_custom_pack = true o 'yes'
-    $args['meta_query'][] = [
-        'relation' => 'OR',
-        [
-            'key'     => '_is_custom_pack',
-            'compare' => 'NOT EXISTS',
-        ],
-        [
-            'key'     => '_is_custom_pack',
-            'value'   => 'yes',
-            'compare' => '!=',
-        ],
-        // [
-            //   'key'     => '_is_custom_pack',
-            //  'value'   => 'true',
-            // 'compare' => '!=',
-        //],
-    ];
-    return $args;
-}, 10, 2);
-
-//NO MUESTRA PACK EN EL ADMIN POST TYPE PRODUCT
-add_action('pre_get_posts', function($query) {
-    // Aplica solo en el admin, en la lista de productos
-    if (is_admin() && $query->is_main_query() && $query->get('post_type') === 'product') {
-        $meta_query = $query->get('meta_query', []);
-
-        $meta_query[] = [
-            'relation' => 'OR',
-            [
-                'key'     => '_is_custom_pack',
-                'compare' => 'NOT EXISTS',
-            ],
-            [
-                'key'     => '_is_custom_pack',
-                'value'   => 'yes',
-                'compare' => '!=',
-            ],
-           // [
-             //   'key'     => '_is_custom_pack',
-              //  'value'   => 'true',
-               // 'compare' => '!=',
-            //],
-        ];
-
-        $query->set('meta_query', $meta_query);
-    }
-});
 
 //GENERA COLLAGE DE PRODUCTO PARA EL PACK IMAGEN DESTACADO
 function mosqueira_create_pack_collage($image_urls = []) {
@@ -982,6 +951,103 @@ add_filter('query_vars', 'agregar_query_vars_packs');
 
 //**********************************END GENERA URL AMIGABLE PARA PACK ******************************************
 
+//CRON PACK MOVE DRAFT
+// Función para poner en draft packs personalizados viejos (>25 horas)
+function mosqueira_draft_old_packs() {
+    $args = [
+        'post_type'      => 'product',
+        'post_status'    => 'publish',
+        'meta_key'       => '_is_custom_pack',
+        'meta_value'     => 'yes',
+        'date_query'     => [
+            [
+                'column' => 'post_date',
+                'before' => '25 hours ago', // packs más viejos que 25 horas
+            ],
+        ],
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+    ];
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        foreach ($query->posts as $old_pack_id) {
+            wp_update_post([
+                'ID' => $old_pack_id,
+                'post_status' => 'draft',
+            ]);
+        }
+    }
+}
+
+// Registrar hook para el evento cron
+add_action('mosqueira_draft_old_packs_hook', 'mosqueira_draft_old_packs');
+
+// Programar evento cron si no existe
+if (!wp_next_scheduled('mosqueira_draft_old_packs_hook')) {
+    wp_schedule_event(time(), 'hourly', 'mosqueira_draft_old_packs_hook');
+}
+
+// Limpiar cron al cambiar de theme
+function mosqueira_clear_cron_on_theme_switch() {
+    $timestamp = wp_next_scheduled('mosqueira_draft_old_packs_hook');
+    if ($timestamp) {
+        wp_unschedule_event($timestamp, 'mosqueira_draft_old_packs_hook');
+    }
+}
+add_action('switch_theme', 'mosqueira_clear_cron_on_theme_switch');
+
+
+
+
+//NO MUESTRA PACK REST API POST TYPE PRODUCT
+add_filter('posts_where', 'ocultar_packs_dinamicos_en_consultas', 10, 2);
+
+function ocultar_packs_dinamicos_en_consultas($where, $query) {
+    global $wpdb;
+
+    // Asegurarse que estamos consultando productos
+    if ($query->get('post_type') === 'product' || (is_array($query->get('post_type')) && in_array('product', $query->get('post_type')))) {
+        // Solo en frontend o en REST API, no en backend cuando se edita un producto
+        if (!is_admin() || defined('REST_REQUEST')) {
+            $where .= " AND {$wpdb->prefix}posts.ID NOT IN (
+                SELECT post_id FROM {$wpdb->prefix}postmeta WHERE meta_key = '_is_custom_pack' AND meta_value = 'yes'
+            )";
+        }
+    }
+
+    return $where;
+}
+
+//GENERAL RESET
+add_action('pre_get_posts', function($query) {
+    // Aplica solo en el admin, en la lista de productos
+    if (is_admin() && $query->is_main_query() && $query->get('post_type') === 'product') {
+        $meta_query = $query->get('meta_query', []);
+
+        $meta_query[] = [
+            'relation' => 'OR',
+            [
+                'key'     => '_is_custom_pack',
+                'compare' => 'NOT EXISTS',
+            ],
+            [
+                'key'     => '_is_custom_pack',
+                'value'   => 'yes',
+                'compare' => '!=',
+            ],
+           // [
+             //   'key'     => '_is_custom_pack',
+              //  'value'   => 'true',
+               // 'compare' => '!=',
+            //],
+        ];
+
+        $query->set('meta_query', $meta_query);
+    }
+});
+
 // Redirige después del login según el rol
 add_filter( 'login_redirect', 'redirect_after_login_by_role', 10, 3 );
 function redirect_after_login_by_role( $redirect_to, $request, $user ) {
@@ -1003,7 +1069,6 @@ function restrict_wp_admin_access_to_admins() {
         exit;
     }
 }
-
 
 //custom login
 include_once 'inc/actions/login-custom.php';

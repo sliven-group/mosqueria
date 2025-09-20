@@ -87,11 +87,9 @@
 	<![endif]-->
 </head>
 <body marginwidth="0" topmargin="0" marginheight="0" offset="0" style="margin:0 auto;">
-	<table align="center" width="100%" bgcolor="#ffffff" style="max-width:600px;" border="0" cellspacing="0"
-	cellpadding="0">
-
+<table align="center" width="100%" bgcolor="#ffffff" style="max-width:600px; border-spacing: 0px;" border="0" cellspacing="0" cellpadding="0">
 <tr>
-	<td height="30" style="font-size:20px; line-height:20px;background: #000;">&nbsp;</td>
+	<td height="30" style="font-size:20px; line-height:30px;background: #000;"></td>
 </tr>
 <tr>
 	<td align="center" style="padding:0;background: #000;">
@@ -100,7 +98,7 @@
 	</td>
 </tr>
 <tr>
-	<td height="20" style="font-size:20px; line-height:20px;background: #000;">&nbsp;</td>
+	<td height="20" style="font-size:20px; line-height:20px;background: #000;"></td>
 </tr>
 <tr>
 	<td align="center" style="padding:0;background: #fff;">
@@ -109,7 +107,7 @@
 	</td>
 </tr>
 <tr>
-	<td height="20" style="font-size:20px; line-height:20px;">&nbsp;</td>
+	<td height="20" style="font-size:20px; line-height:20px;"></td>
 </tr>
 <tr>
 	<td align="center"
@@ -124,7 +122,7 @@
 	</td>
 </tr>
 <tr>
-	<td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
+	<td height="10" style="font-size:10px; line-height:10px;"></td>
 </tr>
 <tr>
 	<td align="center"
@@ -133,7 +131,7 @@
 	</td>
 </tr>
 <tr>
-	<td height="50" style="font-size:50px; line-height:50px;">&nbsp;</td>
+	<td height="50" style="font-size:50px; line-height:50px;"></td>
 </tr>
 <tr>
 	<td align="center"
@@ -145,7 +143,7 @@
 	</td>
 </tr>
 		<tr>
-			<td height="30" style="font-size:30px; line-height:30px;">&nbsp;</td>
+			<td height="30" style="font-size:30px; line-height:30px;"></td>
 		</tr>
 		<tr>
       <td align="center" valign="top">
@@ -203,19 +201,19 @@
       </td>
     </tr>
     <tr>
-      <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
+      <td height="10" style="font-size:10px; line-height:10px;"></td>
     </tr>
-    <tr>
-            <td>
-                <table width="600" bgcolor="#F5FDE8" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                        <td>
-                            <img src="http://imgfz.com/i/OG9eRdQ.jpeg" width="600" height="1" style="vertical-align:bottom; display:block; border:none"/>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+     <tr>
+        <td>
+            <table width="600" bgcolor="#F5FDE8" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td>
+                        <img src="http://imgfz.com/i/OG9eRdQ.jpeg" width="600" height="1" style="vertical-align:bottom; display:block; border:none"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+      </tr>
   </table>
 </body>
 </html>

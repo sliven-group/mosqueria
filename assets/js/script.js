@@ -443,7 +443,7 @@ window.addEventListener('load', function () {
     body.classList.remove('no-scroll');
   });
 
-  //***********************************PACK*****************************************
+  //***********************************PACK******************************************
 
   // Tabla de precios fijos por cantidad total de productos en el pack
   var packPrices = {
@@ -543,6 +543,7 @@ window.addEventListener('load', function () {
       formData.append('pack_items', JSON.stringify(packItems));
       formData.append('pack_total', packTotal);
       this.classList.add('loading');
+      this.closest('.mini-pack-cart').classList.add('loading');
       fetch(jsVars.ajax_url, {
         method: 'POST',
         body: formData,
@@ -563,14 +564,17 @@ window.addEventListener('load', function () {
             countCart.classList.remove('hidden');
           }
           _this2.classList.remove('loading');
+          _this2.closest('.mini-pack-cart').classList.remove('loading');
         } else {
           var _response$data12;
           showError(((_response$data12 = response.data) === null || _response$data12 === void 0 ? void 0 : _response$data12.message) || 'Error desconocido al agregar pack.');
           _this2.classList.remove('loading');
+          _this2.closest('.mini-pack-cart').classList.remove('loading');
         }
       })["catch"](function (error) {
         showError('Error al enviar el pack: ' + error.message);
         _this2.classList.remove('loading');
+        _this2.closest('.mini-pack-cart').classList.remove('loading');
       });
     });
 

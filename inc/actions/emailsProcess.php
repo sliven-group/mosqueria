@@ -101,7 +101,12 @@ function custom_send_email_on_order_status_change($order_id, $old_status, $new_s
 		);
 
 		$direccion_facturacion = $departamento . ', ' . $provincia . ', ' . $distrito;
-
+		$text_delivery="";
+		if($departamento=="LIMA" && $provincia!="CALLAO"){
+			$text_delivery="2 días habiles";
+		}else{
+			$text_delivery="5 días habiles";
+		}
 		ob_start();
 		include( get_stylesheet_directory() . '/woocommerce/emails/email-custom-completed-order.php' );
 		$email_content = ob_get_contents();

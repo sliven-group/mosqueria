@@ -116,7 +116,7 @@
 				<p style="text-align:center;"><?php echo $billing_address_1; ?></p>
 				<p style="text-align:center;">Horario:	09:00am - 07:00pm</p>
 				<p style="text-align:center;">Fecha de Entrega: </p>
-				<p style="text-align:center;"><?php echo $text_delivery; ?></p>
+				<p style="text-align:center;">- <?php echo $text_delivery; ?></p>
 			</td>
 		</tr>
 		<tr>

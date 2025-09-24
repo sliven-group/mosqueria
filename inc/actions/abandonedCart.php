@@ -100,6 +100,18 @@ add_action('acr_enviar_recordatorios', function () {
 
 		if (empty($cart) || !is_array($cart)) continue;
 
+		$user_id = $c->user_id;
+		
+		$name= "";
+		if ( $user_id ) {			
+			if(get_user_meta($user_id, 'billing_first_name', true)){
+				$name=get_user_meta($user_id, 'billing_first_name', true);
+			}else{
+				$user = get_userdata( $user_id ); // Objeto WP_User
+				$name=$user->first_name;				
+			}
+		}
+
 		// Primer correo (a las 2 horas del abandono)
 		if (!$first_sent_ts && ($now_ts - $abandoned_at_ts >= 2 * HOUR_IN_SECONDS)) {
 			ob_start();
